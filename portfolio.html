@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshdeep Singh - Solution Engineer CRM Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.14/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/lexend-deca@4.5.10/index.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+(function(){
+emailjs.init({ publicKey: "3DmvaG18z0dRmON1J" });
+})();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;overflow-x:hidden;background:#0f172a;color:#e2e8f0}
+.font-display{font-family:'Lexend Deca',sans-serif}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#1e293b}
+::-webkit-scrollbar-thumb{background:#475569;border-radius:5px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes slide-up{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes gear-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes hex-rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes bolt-flash{0%,100%{opacity:1;filter:drop-shadow(0 0 10px #ff4f00)}50%{opacity:.7;filter:drop-shadow(0 0 25px #ff4f00)}}
+@keyframes dash-flow{to{stroke-dashoffset:-200}}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+@keyframes toast-in{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes toast-out{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
+@keyframes card-shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(200%) rotate(45deg)}}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.animate-float{animation:float 6s ease-in-out infinite}
+.animate-gradient{background-size:200% 200%;animation:gradient-shift 8s ease infinite}
+.animate-slide-up{animation:slide-up .8s ease forwards}
+.animate-fade-in{animation:fade-in 1s ease forwards}
+.animate-gear-spin{animation:gear-spin 8s linear infinite;transform-origin:center}
+.animate-hex-rotate{animation:hex-rotate 15s linear infinite}
+.animate-bolt-flash{animation:bolt-flash 2s ease-in-out infinite}
+.flow-path{stroke-dasharray:10 5;animation:dash-flow 3s linear infinite}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.glass{background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1)}
+.section-hubspot{background:linear-gradient(135deg,#fff5f2 0%,#ffe8e0 50%,#ffd5c5 100%)}
+.section-make{background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 50%,#ddd6fe 100%)}
+.section-zapier{background:linear-gradient(135deg,#fff4ed 0%,#ffe4d6 50%,#ffd4bf 100%)}
+.section-gas{background:linear-gradient(135deg,#eef4ff 0%,#dbeafe 50%,#bfdbfe 100%)}
+.nav-link{position:relative;transition:color .3s}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#ff7a59;transition:width .3s}
+.nav-link:hover::after{width:100%}
+.hero-title{font-size:clamp(2.5rem,8vw,5rem);line-height:1.1}
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:12px;pointer-events:none}
+.toast{background:white;border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px rgba(0,0,0,.2);display:flex;align-items:center;gap:12px;min-width:300px;max-width:400px;animation:toast-in .4s cubic-bezier(.16,1,.3,1) forwards;pointer-events:auto;border-left:4px solid #ff7a59}
+.toast.removing{animation:toast-out .3s ease forwards}
+.toast-icon{width:40px;height:40px;border-radius:10px;background:#fff1ec;color:#ff7a59;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.toast-content{flex:1}
+.toast-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:2px}
+.toast-message{font-size:12px;color:#6b7280}
+.toast-close{width:28px;height:28px;border-radius:6px;border:none;background:transparent;cursor:pointer;color:#9ca3af;display:flex;align-items:center;justify-content:center}
+.toast-close:hover{background:#f3f4f6;color:#111827}
+.mobile-menu{position:fixed;top:0;right:0;width:100%;max-width:320px;height:100vh;background:rgba(15,23,42,.98);backdrop-filter:blur(20px);z-index:100;transform:translateX(100%);transition:transform .3s ease;padding:80px 24px 24px}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:99;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu-overlay.open{opacity:1;pointer-events:auto}
+.canvas-container{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5}
+/* FIXED IMAGE STYLES - Portrait image support */
+.photo-showcase{
+position:relative;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 25px 50px -12px rgba(0,0,0,.5);
+width:100%;
+height:100%;
+min-height:500px;
+max-height:700px;
+background:linear-gradient(135deg,#ff7a59,#6d28d9);
+}
+.photo-showcase img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center top;
+display:block;
+image-rendering:-webkit-optimize-contrast;
+image-rendering:crisp-edges;
+}
+.photo-showcase::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(255,122,89,.15),rgba(139,92,246,.15));
+mix-blend-mode:overlay;
+z-index:1;
+pointer-events:none;
+}
+.photo-showcase::after{
+content:'';
+position:absolute;
+inset:0;
+border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
+z-index:2;
+pointer-events:none;
+}
+.hs-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
+.hs-sidebar{width:64px;background:#fff;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:center;padding:16px 0;flex-shrink:0}
+.hs-sidebar-logo{width:36px;height:36px;background:#ff7a59;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;margin-bottom:24px}
+.hs-sidebar-nav{display:flex;flex-direction:column;gap:4px;flex:1;width:100%;align-items:center}
+.hs-sidebar-item{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:#6b7280;position:relative}
+.hs-sidebar-item:hover{background:#f3f4f6;color:#111827}
+.hs-sidebar-item.active{background:#fff1ec;color:#ff7a59}
+.hs-sidebar-item.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:24px;background:#ff7a59;border-radius:0 3px 3px 0}
+.hs-sidebar-item svg{width:20px;height:20px}
+.hs-main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#f9fafb}
+.hs-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+.hs-header-search{flex:1;max-width:560px;position:relative}
+.hs-header-search input{width:100%;padding:10px 16px 10px 40px;background:#f3f4f6;border:1px solid transparent;border-radius:8px;font-size:14px;color:#111827;outline:none;transition:all .2s}
+.hs-header-search input:focus{background:#fff;border-color:#ff7a59;box-shadow:0 0 0 3px rgba(255,122,89,.1)}
+.hs-header-search input::placeholder{color:#9ca3af}
+.hs-header-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#9ca3af}
+.hs-search-dropdown{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.15);z-index:100;max-height:400px;overflow-y:auto;display:none}
+.hs-search-dropdown.visible{display:block;animation:fade-in .2s ease}
+.hs-search-section-title{padding:12px 16px 8px;font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.5px}
+.hs-search-result{padding:10px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .15s}
+.hs-search-result:hover{background:#f9fafb}
+.hs-search-result-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
+.hs-search-result-info{flex:1;min-width:0}
+.hs-search-result-name{font-size:13px;font-weight:600;color:#111827}
+.hs-search-result-meta{font-size:12px;color:#6b7280}
+.hs-header-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.hs-header-btn{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;color:#6b7280;position:relative}
+.hs-header-btn:hover{background:#f3f4f6;color:#111827}
+.hs-header-btn svg{width:18px;height:18px}
+.hs-notification-badge{position:absolute;top:6px;right:6px;width:8px;height:8px;background:#ef4444;border-radius:50%;border:2px solid #fff}
+.hs-user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff7a59,#ff9a7e);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;color:#fff;cursor:pointer;margin-left:8px}
+.hs-subnav{background:#fff;border-bottom:1px solid #e5e7eb;padding:0 24px;display:flex;align-items:center;gap:4px;overflow-x:auto;flex-shrink:0}
+.hs-subnav::-webkit-scrollbar{height:0}
+.hs-subnav-item{padding:14px 16px;font-size:14px;font-weight:500;color:#6b7280;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:flex;align-items:center;gap:8px}
+.hs-subnav-item:hover{color:#111827}
+.hs-subnav-item.active{color:#ff7a59;border-bottom-color:#ff7a59;font-weight:600}
+.hs-subnav-item svg{width:16px;height:16px}
+.hs-subnav-badge{background:#f3f4f6;color:#6b7280;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.hs-subnav-item.active .hs-subnav-badge{background:#fff1ec;color:#ff7a59}
+.hs-content{flex:1;padding:24px;overflow-y:auto;background:#f9fafb}
+.hs-tab-content{display:none}
+.hs-tab-content.active{display:block;animation:fade-in .3s ease}
+.hs-page-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;gap:16px;flex-wrap:wrap}
+.hs-page-title{font-size:24px;font-weight:700;color:#111827;margin-bottom:4px}
+.hs-page-subtitle{font-size:14px;color:#6b7280}
+.hs-page-actions{display:flex;gap:8px;align-items:center}
+.hs-btn-primary{background:#ff7a59;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.hs-btn-primary:hover{background:#e8634a;transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,122,89,.3)}
+.hs-btn-secondary{background:#fff;color:#374151;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid #d1d5db;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.hs-btn-secondary:hover{background:#f9fafb;border-color:#9ca3af}
+.hs-btn-ghost{background:transparent;color:#6b7280;padding:10px 12px;border-radius:8px;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:all .2s}
+.hs-btn-ghost:hover{background:#f3f4f6;color:#111827}
+.hs-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px}
+.hs-stat-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;transition:all .2s}
+.hs-stat-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);border-color:#d1d5db}
+.hs-stat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.hs-stat-label{font-size:12px;color:#6b7280;font-weight:500}
+.hs-stat-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.hs-stat-value{font-size:28px;font-weight:700;color:#111827;margin-bottom:6px}
+.hs-stat-change{font-size:12px;display:flex;align-items:center;gap:4px;font-weight:500}
+.hs-stat-change.positive{color:#059669}
+.hs-table-container{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden}
+.hs-table-toolbar{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.hs-table-toolbar-left{display:flex;align-items:center;gap:8px;flex:1}
+.hs-table-search{flex:1;max-width:320px;position:relative}
+.hs-table-search input{width:100%;padding:8px 12px 8px 36px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;outline:none;transition:all .2s}
+.hs-table-search input:focus{border-color:#ff7a59;box-shadow:0 0 0 3px rgba(255,122,89,.1)}
+.hs-table-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af}
+.hs-filter-chip{padding:8px 14px;background:#fff;border:1px solid #d1d5db;border-radius:8px;font-size:13px;font-weight:500;color:#374151;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s}
+.hs-filter-chip:hover{border-color:#9ca3af;background:#f9fafb}
+.hs-filter-chip.active{background:#fff1ec;border-color:#ff7a59;color:#ff7a59}
+.hs-table{width:100%;border-collapse:collapse;font-size:14px}
+.hs-table th{background:#f9fafb;padding:12px 20px;text-align:left;font-weight:600;color:#6b7280;font-size:12px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #e5e7eb;white-space:nowrap}
+.hs-table td{padding:16px 20px;border-bottom:1px solid #f3f4f6;color:#111827}
+.hs-table tr{transition:background .15s;cursor:pointer}
+.hs-table tbody tr:hover{background:#f9fafb}
+.hs-table tr:last-child td{border-bottom:none}
+.hs-contact-cell{display:flex;align-items:center;gap:12px}
+.hs-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0}
+.hs-contact-name{font-weight:600;color:#111827}
+.hs-contact-name:hover{color:#ff7a59}
+.hs-contact-email{font-size:12px;color:#6b7280}
+.hs-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:600;gap:4px}
+.hs-badge::before{content:'';width:6px;height:6px;border-radius:50%}
+.hs-badge-customer{background:#d1fae5;color:#065f46}.hs-badge-customer::before{background:#059669}
+.hs-badge-lead{background:#fef3c7;color:#92400e}.hs-badge-lead::before{background:#d97706}
+.hs-badge-subscriber{background:#dbeafe;color:#1e40af}.hs-badge-subscriber::before{background:#2563eb}
+.hs-badge-opportunity{background:#ede9fe;color:#5b21b6}.hs-badge-opportunity::before{background:#7c3aed}
+.hs-badge-other{background:#f3f4f6;color:#4b5563}.hs-badge-other::before{background:#6b7280}
+.hs-table-footer{padding:12px 20px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6b7280}
+.wf-builder{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;margin-bottom:24px}
+.wf-header{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;background:#fafafa}
+.wf-title{font-size:16px;font-weight:600;color:#111827;display:flex;align-items:center;gap:8px}
+.wf-status{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.wf-status.active{background:#d1fae5;color:#065f46}
+.wf-status.active .wf-dot{background:#059669}
+.wf-dot{width:6px;height:6px;border-radius:50%}
+.wf-canvas{padding:32px 20px;min-height:400px;background:#f9fafb;display:flex;flex-direction:column;align-items:center;gap:0}
+.wf-node{background:#fff;border:2px solid #e5e7eb;border-radius:12px;padding:16px 20px;min-width:280px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s}
+.wf-node:hover{border-color:#ff7a59;box-shadow:0 4px 12px rgba(255,122,89,.15);transform:translateY(-2px)}
+.wf-node.trigger{border-color:#ff7a59;background:#fff1ec}
+.wf-node.action{border-color:#3b82f6}
+.wf-node.branch{border-color:#8b5cf6;background:#faf5ff}
+.wf-node-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.wf-node-info{flex:1}
+.wf-node-label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.wf-node-name{font-size:14px;font-weight:600;color:#111827;margin-top:2px}
+.wf-connector{width:2px;height:32px;background:#d1d5db;position:relative}
+.wf-connector::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #d1d5db}
+.wf-add{width:40px;height:40px;border-radius:50%;background:#fff;border:2px dashed #d1d5db;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:#6b7280;margin:8px 0}
+.wf-add:hover{border-color:#ff7a59;color:#ff7a59;background:#fff1ec}
+.wf-list{display:flex;flex-direction:column;gap:12px}
+.wf-item{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;transition:all .2s;cursor:pointer}
+.wf-item:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);border-color:#d1d5db}
+.wf-item-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.wf-item-info{flex:1}
+.wf-item-name{font-size:15px;font-weight:600;color:#111827;margin-bottom:4px}
+.wf-item-desc{font-size:13px;color:#6b7280}
+.wf-item-status{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:6px 12px;border-radius:12px}
+.wf-item-status.active{background:#d1fae5;color:#065f46}
+.wf-item-status.active .wf-item-dot{background:#059669}
+.wf-item-status.paused{background:#fee2e2;color:#991b1b}
+.wf-item-status.paused .wf-item-dot{background:#dc2626}
+.wf-item-status.draft{background:#f3f4f6;color:#4b5563}
+.wf-item-status.draft .wf-item-dot{background:#6b7280}
+.wf-item-dot{width:6px;height:6px;border-radius:50%}
+.make-ui{background:#1a1a2e;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);display:flex;height:600px;color:#fff;font-family:'Inter',sans-serif}
+.make-sidebar{width:220px;background:#16162a;border-right:1px solid #2a2a4a;display:flex;flex-direction:column;flex-shrink:0}
+.make-sidebar-header{padding:16px;border-bottom:1px solid #2a2a4a;display:flex;align-items:center;gap:10px}
+.make-logo{width:32px;height:32px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.make-sidebar-title{font-size:14px;font-weight:600}
+.make-sidebar-subtitle{font-size:11px;color:#8b8ba7}
+.make-module-list{flex:1;overflow-y:auto;padding:12px}
+.make-module-list::-webkit-scrollbar{width:4px}
+.make-module-list::-webkit-scrollbar-thumb{background:#2a2a4a;border-radius:2px}
+.make-module-category{font-size:10px;font-weight:600;color:#8b8ba7;text-transform:uppercase;letter-spacing:.5px;padding:8px 4px 4px}
+.make-module-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s;margin-bottom:2px}
+.make-module-item:hover{background:#2a2a4a}
+.make-module-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.make-module-name{font-size:13px;font-weight:500}
+.make-module-count{font-size:11px;color:#8b8ba7;margin-left:auto}
+.make-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.make-topbar{background:#16162a;border-bottom:1px solid #2a2a4a;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.make-scenario-info{display:flex;align-items:center;gap:12px}
+.make-scenario-name{font-size:16px;font-weight:600}
+.make-scenario-status{display:flex;align-items:center;gap:6px;padding:4px 10px;background:#065f46;color:#d1fae5;border-radius:12px;font-size:11px;font-weight:600}
+.make-scenario-status .dot{width:6px;height:6px;border-radius:50%;background:#10b981}
+.make-topbar-actions{display:flex;gap:8px;align-items:center}
+.make-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.make-btn-primary{background:#6d28d9;color:#fff}
+.make-btn-primary:hover{background:#5b21b6}
+.make-btn-secondary{background:#2a2a4a;color:#fff;border:1px solid #3a3a5a}
+.make-btn-secondary:hover{background:#3a3a5a}
+.make-btn-run{background:#10b981;color:#fff;padding:8px 20px}
+.make-btn-run:hover{background:#059669}
+.make-canvas{flex:1;background:#0f0f1e;position:relative;overflow:hidden;background-image:radial-gradient(circle,#2a2a4a 1px,transparent 1px);background-size:24px 24px}
+.make-canvas-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.make-flow-line{stroke:#6d28d9;stroke-width:3;fill:none;stroke-dasharray:8 4;animation:dash-flow 1.5s linear infinite}
+.make-node{position:absolute;background:#1a1a2e;border:2px solid #2a2a4a;border-radius:12px;padding:12px 16px;min-width:140px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:6px}
+.make-node:hover{border-color:#6d28d9;box-shadow:0 0 20px rgba(109,40,217,.3);transform:scale(1.05)}
+.make-node.active{border-color:#8b5cf6;box-shadow:0 0 24px rgba(139,92,246,.4)}
+.make-node-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.make-node-label{font-size:11px;font-weight:600;text-align:center}
+.make-node-sublabel{font-size:10px;color:#8b8ba7;text-align:center}
+.make-node-number{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#6d28d9;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.zap-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
+.zap-sidebar{width:220px;background:#fafafa;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;flex-shrink:0}
+.zap-sidebar-header{padding:16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px}
+.zap-logo{width:32px;height:32px;background:#ff4f00;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+.zap-sidebar-title{font-size:14px;font-weight:600;color:#111827}
+.zap-nav{padding:12px;flex:1}
+.zap-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s;font-size:13px;color:#4b5563;margin-bottom:2px}
+.zap-nav-item:hover{background:#f3f4f6;color:#111827}
+.zap-nav-item.active{background:#fff4ed;color:#ff4f00;font-weight:600}
+.zap-nav-item svg{width:16px;height:16px}
+.zap-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.zap-topbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.zap-zap-info{display:flex;align-items:center;gap:12px}
+.zap-zap-name{font-size:16px;font-weight:600;color:#111827}
+.zap-toggle{position:relative;width:44px;height:24px;background:#10b981;border-radius:12px;cursor:pointer;transition:background .2s}
+.zap-toggle::after{content:'';position:absolute;top:2px;right:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.zap-toggle.off{background:#d1d5db}
+.zap-toggle.off::after{transform:translateX(-20px);right:auto;left:2px}
+.zap-topbar-actions{display:flex;gap:8px}
+.zap-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.zap-btn-primary{background:#ff4f00;color:#fff}
+.zap-btn-primary:hover{background:#e04600}
+.zap-btn-secondary{background:#fff;color:#374151;border:1px solid #d1d5db}
+.zap-btn-secondary:hover{background:#f9fafb}
+.zap-editor{flex:1;overflow-y:auto;padding:24px;background:#f9fafb}
+.zap-step{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:16px;display:flex;gap:16px;transition:all .2s;cursor:pointer}
+.zap-step:hover{border-color:#ff4f00;box-shadow:0 4px 12px rgba(255,79,0,.1)}
+.zap-step.trigger .zap-step-number{background:#dbeafe;color:#2563eb}
+.zap-step-number{width:32px;height:32px;border-radius:50%;background:#fff4ed;color:#ff4f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.zap-step-content{flex:1}
+.zap-step-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.zap-step-label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.zap-step-status{font-size:11px;color:#10b981;font-weight:600;display:flex;align-items:center;gap:4px}
+.zap-step-app{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.zap-app-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.zap-app-name{font-size:15px;font-weight:600;color:#111827}
+.zap-action-name{font-size:13px;color:#6b7280}
+.zap-step-connector{width:2px;height:24px;background:#e5e7eb;margin:0 auto}
+.zap-add-step{background:#fff;border:2px dashed #d1d5db;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;color:#6b7280;font-size:14px;font-weight:500}
+.zap-add-step:hover{border-color:#ff4f00;color:#ff4f00;background:#fff4ed}
+.gas-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
+.gas-sidebar{width:220px;background:#f8f9fa;border-right:1px solid #e8eaed;display:flex;flex-direction:column;flex-shrink:0}
+.gas-sidebar-header{padding:16px;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:10px}
+.gas-logo{width:32px;height:32px;background:linear-gradient(135deg,#4285f4,#34a853);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.gas-sidebar-title{font-size:14px;font-weight:600;color:#202124}
+.gas-sidebar-subtitle{font-size:11px;color:#5f6368}
+.gas-file-list{flex:1;overflow-y:auto;padding:8px}
+.gas-file-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s;margin-bottom:2px;font-size:13px;color:#3c4043}
+.gas-file-item:hover{background:#e8f0fe}
+.gas-file-item.active{background:#e8f0fe;color:#1a73e8;font-weight:600}
+.gas-file-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.gas-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.gas-topbar{background:#fff;border-bottom:1px solid #e8eaed;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.gas-filename{font-size:15px;font-weight:600;color:#202124;display:flex;align-items:center;gap:8px}
+.gas-topbar-actions{display:flex;gap:8px}
+.gas-btn{padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.gas-btn-run{background:#1a73e8;color:#fff}
+.gas-btn-run:hover{background:#1557b0}
+.gas-btn-run.running{background:#fbbc04;color:#202124}
+.gas-btn-debug{background:#fff;color:#3c4043;border:1px solid #dadce0}
+.gas-btn-debug:hover{background:#f8f9fa}
+.gas-editor-area{flex:1;display:flex;overflow:hidden;background:#1e1e1e}
+.gas-line-numbers{background:#252526;color:#858585;padding:16px 12px;font-family:'Consolas','Monaco',monospace;font-size:13px;line-height:1.6;text-align:right;user-select:none;min-width:50px}
+.gas-code{flex:1;padding:16px;font-family:'Consolas','Monaco',monospace;font-size:13px;line-height:1.6;color:#d4d4d4;overflow-y:auto;white-space:pre}
+.gas-code .keyword{color:#569cd6}
+.gas-code .function{color:#dcdcaa}
+.gas-code .string{color:#ce9178}
+.gas-code .comment{color:#6a9955}
+.gas-code .variable{color:#9cdcfe}
+.gas-code .number{color:#b5cea8}
+.gas-console{background:#1e1e1e;border-top:1px solid #333;padding:12px 16px;font-family:'Consolas',monospace;font-size:12px;color:#d4d4d4;max-height:150px;overflow-y:auto;display:none}
+.gas-console.visible{display:block}
+.gas-console-line{padding:2px 0}
+.gas-console-line.success{color:#4ec9b0}
+.gas-console-line.error{color:#f48771}
+.gas-console-line.info{color:#9cdcfe}
+.gas-output{background:#fff;border-top:1px solid #e8eaed;padding:16px 20px;display:none}
+.gas-output.visible{display:block}
+.cs-card{position:relative;background:rgba(255,255,255,.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.16,1,.3,1)}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);opacity:0;transition:opacity .3s}
+.cs-card:hover::before{opacity:1}
+.cs-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.2);box-shadow:0 30px 60px -15px rgba(0,0,0,.5),0 0 40px var(--card-glow)}
+.cs-card:hover .card-shine{animation:card-shine 1.5s ease-in-out}
+.card-shine{position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%) rotate(45deg);pointer-events:none}
+.card-gradient-bg{position:absolute;top:0;left:0;right:0;height:200px;opacity:.15;transition:opacity .3s}
+.cs-card:hover .card-gradient-bg{opacity:.25}
+.card-logo-badge{position:relative;z-index:2;width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:all .3s}
+.cs-card:hover .card-logo-badge{transform:scale(1.1) rotate(-5deg);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.card-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1)}
+.card-metric{display:flex;flex-direction:column;padding:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;transition:all .3s}
+.card-metric:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.card-metric-value{font-size:22px;font-weight:700;font-family:'Lexend Deca',sans-serif;color:#fff;line-height:1}
+.card-metric-label{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px}
+.card-tech-pill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.08);transition:all .2s}
+.card-tech-pill:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
+.card-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;transition:all .3s;background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1)}
+.card-cta:hover{background:var(--card-accent);color:#fff;border-color:var(--card-accent);transform:translateX(4px)}
+.card-cta svg{transition:transform .3s}
+.card-cta:hover svg{transform:translateX(4px)}
+.contact-card{position:relative;background:rgba(255,255,255,.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;transition:all .3s}
+.contact-card:hover{border-color:rgba(255,122,89,.3);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.contact-method{display:flex;align-items:center;gap:16px;padding:20px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .3s;cursor:pointer}
+.contact-method:hover{background:rgba(255,255,255,.06);border-color:rgba(255,122,89,.3);transform:translateX(4px)}
+.contact-method-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#ff7a59,#ff9a7e);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;flex-shrink:0}
+.contact-method-label{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.contact-method-value{font-size:15px;font-weight:600;color:#fff}
+.form-input{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:all .2s}
+.form-input:focus{background:rgba(255,255,255,.08);border-color:#ff7a59;box-shadow:0 0 0 3px rgba(255,122,89,.15)}
+.form-input::placeholder{color:rgba(255,255,255,.4)}
+.form-label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.detail-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:200;opacity:0;pointer-events:none;transition:opacity .4s ease}
+.detail-overlay.open{opacity:1;pointer-events:auto}
+.detail-panel{position:fixed;top:0;right:0;width:100%;max-width:1400px;height:100vh;background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);z-index:201;transform:translateX(100%);transition:transform .6s cubic-bezier(.16,1,.3,1);overflow-y:auto}
+.detail-panel.open{transform:translateX(0)}
+.detail-panel::-webkit-scrollbar{width:8px}
+.detail-panel::-webkit-scrollbar-track{background:#0f172a}
+.detail-panel::-webkit-scrollbar-thumb{background:#475569;border-radius:4px}
+.detail-glass{background:rgba(255,255,255,.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:16px;transition:all .3s}
+.detail-glass:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.metric-3d{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.02) 100%);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;transition:all .4s cubic-bezier(.16,1,.3,1);overflow:hidden}
+.metric-3d::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.6}
+.metric-3d:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 30px var(--accent-glow);border-color:var(--accent)}
+.tech-cube{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;transition:all .3s;cursor:pointer}
+.tech-cube:hover{transform:translateY(-4px) scale(1.05);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.detail-section-title{display:flex;align-items:center;gap:12px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:16px}
+.detail-section-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(255,255,255,.1)}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.check-item:last-child{border-bottom:none}
+.check-icon{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:12px}
+/* Contact form loader */
+.contact-spinner{
+display:inline-block;
+width:18px;
+height:18px;
+border:2.5px solid rgba(255,255,255,.35);
+border-top-color:#fff;
+border-radius:50%;
+animation:spin .8s linear infinite;
+}
+.contact-thankyou{
+animation:fade-in .5s ease forwards;
+}
+@media (max-width:768px){
+.hs-ui,.make-ui,.zap-ui,.gas-ui{height:auto;flex-direction:column}
+.hs-sidebar,.make-sidebar,.zap-sidebar,.gas-sidebar{width:100%;border-right:none;border-bottom:1px solid #e5e7eb}
+.hs-sidebar-nav,.make-module-list,.zap-nav,.gas-file-list{flex-direction:row;overflow-x:auto;padding:8px}
+.hs-sidebar-item{width:auto;height:auto;padding:8px 12px}
+.hs-sidebar-item.active::before{display:none}
+.make-module-item,.zap-nav-item,.gas-file-item{white-space:nowrap}
+.make-canvas{min-height:400px}
+.hs-content{padding:16px}
+.hs-page-title{font-size:20px}
+.hs-stats-grid{grid-template-columns:repeat(2,1fr)}
+.hs-table th,.hs-table td{padding:12px 10px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="toast-container" id="toast-container"></div>
+<nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+<div class="flex items-center gap-2 sm:gap-3">
+<div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-orange-400 to-purple-600 flex items-center justify-center text-white font-bold text-sm sm:text-lg">HS</div>
+<span class="text-white font-display font-bold text-base sm:text-xl">Harshdeep Singh</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a href="#home" class="nav-link text-white/80 hover:text-white text-sm font-medium">Home</a>
+<a href="#about" class="nav-link text-white/80 hover:text-white text-sm font-medium">About</a>
+<a href="#tools" class="nav-link text-white/80 hover:text-white text-sm font-medium">Tools</a>
+<a href="#projects" class="nav-link text-white/80 hover:text-white text-sm font-medium">Projects</a>
+<a href="#contact" class="nav-link text-white/80 hover:text-white text-sm font-medium">Contact</a>
+</div>
+<div class="flex items-center gap-3">
+<a href="#contact" class="hidden sm:inline-flex px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-lg text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-orange-500/30 transition-all">Hire Me</a>
+<button id="menu-toggle" class="lg:hidden text-white p-2" aria-label="Menu">
+<svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+</div>
+</div>
+</nav>
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+<div id="mobile-menu" class="mobile-menu">
+<div class="flex flex-col gap-6">
+<a href="#home" class="mobile-link text-white/90 hover:text-white text-lg font-medium py-2 border-b border-white/10">Home</a>
+<a href="#about" class="mobile-link text-white/90 hover:text-white text-lg font-medium py-2 border-b border-white/10">About</a>
+<a href="#tools" class="mobile-link text-white/90 hover:text-white text-lg font-medium py-2 border-b border-white/10">Tools</a>
+<a href="#projects" class="mobile-link text-white/90 hover:text-white text-lg font-medium py-2 border-b border-white/10">Projects</a>
+<a href="#contact" class="mobile-link text-white/90 hover:text-white text-lg font-medium py-2 border-b border-white/10">Contact</a>
+<a href="#contact" class="mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-lg text-sm font-semibold text-center">Hire Me</a>
+</div>
+</div>
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-20">
+<div class="absolute inset-0 overflow-hidden">
+<div class="absolute top-20 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-orange-500/20 rounded-full blur-3xl animate-float"></div>
+<div class="absolute bottom-20 right-10 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay:2s"></div>
+<div class="absolute top-1/2 left-1/2 w-56 h-56 sm:w-80 sm:h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style="animation-delay:4s"></div>
+<div class="absolute inset-0" style="background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px"></div>
+</div>
+<canvas id="bubble-canvas" class="canvas-container"></canvas>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center pointer-events-none">
+<div class="animate-slide-up pointer-events-auto text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-4 sm:mb-6">
+<div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+<span class="text-white/80 text-xs sm:text-sm">Available for projects</span>
+</div>
+<h1 class="font-display hero-title font-bold text-white mb-4 sm:mb-6">Harshdeep<br><span class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-gradient">Singh</span></h1>
+<p class="text-xl sm:text-2xl text-orange-400 font-display font-semibold mb-3 sm:mb-4">Solution Engineer • CRM Specialist</p>
+<p class="text-white/70 text-base sm:text-lg mb-6 sm:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">I architect seamless CRM ecosystems using HubSpot, Make, Zapier, and Google Apps Script. Turning complex business logic into elegant automation.</p>
+<div class="flex flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
+<a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 pointer-events-auto text-sm sm:text-base">View Projects</a>
+<a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 glass text-white rounded-xl font-semibold hover:bg-white/10 transition-all pointer-events-auto text-sm sm:text-base">Get in Touch</a>
+</div>
+<div class="grid grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10">
+<div><div class="text-2xl sm:text-3xl font-bold text-white">10+</div><div class="text-white/50 text-xs sm:text-sm mt-1">Projects</div></div>
+<div><div class="text-2xl sm:text-3xl font-bold text-white">4+</div><div class="text-white/50 text-xs sm:text-sm mt-1">Platforms</div></div>
+<div><div class="text-2xl sm:text-3xl font-bold text-white">1.5+</div><div class="text-white/50 text-xs sm:text-sm mt-1">Years Exp</div></div>
+</div>
+</div>
+<div class="hidden md:block"></div>
+</div>
+<div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-xs sm:text-sm animate-bounce z-20" style="animation:float 2s ease-in-out infinite">
+<div class="flex flex-col items-center gap-1 sm:gap-2"><span>Scroll to explore</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
+</div>
+</section>
+<div class="bg-slate-900 py-4 sm:py-6 overflow-hidden border-y border-white/5">
+<div class="marquee whitespace-nowrap" style="display:flex;animation:marquee 30s linear infinite">
+<span class="inline-flex items-center gap-6 sm:gap-8 mx-4 text-white/40 text-base sm:text-lg font-display"><span>HUBSPOT</span><span class="text-orange-500">●</span><span>MAKE.COM</span><span class="text-purple-500">●</span><span>ZAPIER</span><span class="text-orange-600">●</span><span>GOOGLE APPS SCRIPT</span><span class="text-blue-500">●</span><span>CRM ARCHITECTURE</span><span class="text-pink-500">●</span><span>AUTOMATION</span><span class="text-green-500">●</span></span>
+<span class="inline-flex items-center gap-6 sm:gap-8 mx-4 text-white/40 text-base sm:text-lg font-display"><span>HUBSPOT</span><span class="text-orange-500">●</span><span>MAKE.COM</span><span class="text-purple-500">●</span><span>ZAPIER</span><span class="text-orange-600">●</span><span>GOOGLE APPS SCRIPT</span><span class="text-blue-500">●</span><span>CRM ARCHITECTURE</span><span class="text-pink-500">●</span><span>AUTOMATION</span><span class="text-green-500">●</span></span>
+</div>
+</div>
+<style>@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+<!-- UPDATED ABOUT SECTION - Equal height columns, image on right -->
+<section id="about" class="py-16 sm:py-24 bg-slate-900 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal">
+<span class="text-orange-400 font-display font-bold text-xs sm:text-sm tracking-widest uppercase">About Me</span>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6">Bridging Business Logic<br><span class="text-white/40">& Technical Execution</span></h2>
+</div>
+<!-- Updated Layout: Content Left, Image Right with equal height -->
+<div class="grid md:grid-cols-2 gap-8 sm:gap-12 mt-10 sm:mt-16 items-stretch">
+<!-- LEFT SIDE: All content -->
+<div class="reveal space-y-6 flex flex-col justify-between">
+<div class="space-y-4 sm:space-y-6">
+<p class="text-white/70 text-base sm:text-lg leading-relaxed">As a Solution Engineer specializing in CRM systems, I design and implement automation architectures that transform how businesses operate. My expertise spans across the leading no-code/low-code platforms, enabling rapid deployment of complex workflows.</p>
+<p class="text-white/70 text-base sm:text-lg leading-relaxed">From HubSpot's robust CRM ecosystem to Make's visual automation builder, Zapier's vast app library, and Google Apps Script's custom scripting capabilities. I choose the right tool for each unique business challenge.</p>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-2 gap-3 sm:gap-4">
+<div class="glass rounded-xl p-3 sm:p-4"><div class="text-xl sm:text-2xl font-bold text-orange-400">80%</div><div class="text-white/50 text-xs sm:text-sm">Reduction in Manual Tasks</div></div>
+<div class="glass rounded-xl p-3 sm:p-4"><div class="text-xl sm:text-2xl font-bold text-purple-400">99.9%</div><div class="text-white/50 text-xs sm:text-sm">Workflow Uptime</div></div>
+<div class="glass rounded-xl p-3 sm:p-4"><div class="text-xl sm:text-2xl font-bold text-blue-400">10K+</div><div class="text-white/50 text-xs sm:text-sm">Records Processed Daily</div></div>
+<div class="glass rounded-xl p-3 sm:p-4"><div class="text-xl sm:text-2xl font-bold text-green-400">200+</div><div class="text-white/50 text-xs sm:text-sm">Hours Saved Monthly</div></div>
+</div>
+<!-- Core Competencies - Moved here to fit on left -->
+<div class="glass rounded-2xl p-5 sm:p-6">
+<h3 class="font-display text-lg sm:text-xl font-bold text-white mb-4">Core Competencies</h3>
+<div class="space-y-3">
+<div><div class="flex justify-between mb-1"><span class="text-white/80 text-xs sm:text-sm font-medium">HubSpot CRM</span><span class="text-orange-400 text-xs sm:text-sm">95%</span></div><div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full" style="width:95%"></div></div></div>
+<div><div class="flex justify-between mb-1"><span class="text-white/80 text-xs sm:text-sm font-medium">Make.com</span><span class="text-purple-400 text-xs sm:text-sm">90%</span></div><div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full" style="width:90%"></div></div></div>
+<div><div class="flex justify-between mb-1"><span class="text-white/80 text-xs sm:text-sm font-medium">Zapier</span><span class="text-orange-500 text-xs sm:text-sm">88%</span></div><div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full" style="width:88%"></div></div></div>
+<div><div class="flex justify-between mb-1"><span class="text-white/80 text-xs sm:text-sm font-medium">Google Apps Script</span><span class="text-blue-400 text-xs sm:text-sm">85%</span></div><div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full" style="width:85%"></div></div></div>
+<div><div class="flex justify-between mb-1"><span class="text-white/80 text-xs sm:text-sm font-medium">API Design</span><span class="text-pink-400 text-xs sm:text-sm">92%</span></div><div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-pink-400 to-pink-600 rounded-full" style="width:92%"></div></div></div>
+</div>
+</div>
+</div>
+<!-- RIGHT SIDE: Image only - matches left column height -->
+<div class="reveal flex items-center justify-center">
+<div class="photo-showcase w-full h-full max-h-[700px]">
+<img src="dp.png" alt="Harshdeep Singh - Solution Engineer CRM" style="width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast;">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tools" class="section-hubspot py-16 sm:py-24 relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none"><defs><pattern id="hg" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="2" fill="#ff7a59"/></pattern></defs><rect width="100%" height="100%" fill="url(#hg)"/></svg>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-10 sm:mb-16">
+<span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#ff7a59]/10 border border-[#ff7a59]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#ff7a59]"></div><span class="text-[#e8634a] font-semibold text-xs sm:text-sm">PRIMARY PLATFORM</span></span>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">HubSpot<span class="block text-2xl sm:text-3xl md:text-4xl text-[#ff7a59] mt-2">Development & CRM</span></h2>
+</div>
+<div class="reveal flex justify-center mb-10 sm:mb-16">
+<div style="position:relative;width:160px;height:160px">
+<svg class="animate-gear-spin" style="transform-origin:center" width="160" height="160" viewBox="0 0 200 200">
+<g fill="#ff7a59"><rect x="90" y="5" width="20" height="30" rx="4"/><rect x="90" y="165" width="20" height="30" rx="4"/><rect x="5" y="90" width="30" height="20" rx="4"/><rect x="165" y="90" width="30" height="20" rx="4"/><rect x="30" y="20" width="20" height="30" rx="4" transform="rotate(45 40 35)"/><rect x="150" y="150" width="20" height="30" rx="4" transform="rotate(45 160 165)"/><rect x="30" y="150" width="20" height="30" rx="4" transform="rotate(-45 40 165)"/><rect x="150" y="20" width="20" height="30" rx="4" transform="rotate(-45 160 35)"/></g>
+<circle cx="100" cy="100" r="70" fill="#ff7a59"/><circle cx="100" cy="100" r="50" fill="#fff5f2"/>
+<text x="100" y="115" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="50" fill="#ff7a59">H</text>
+</svg>
+</div>
+</div>
+<div class="reveal mb-10 sm:mb-16">
+<div class="hs-ui">
+<div class="hs-sidebar">
+<div class="hs-sidebar-logo">H</div>
+<div class="hs-sidebar-nav">
+<div class="hs-sidebar-item active" data-nav="crm" title="CRM"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+<div class="hs-sidebar-item" data-nav="marketing" title="Marketing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg></div>
+<div class="hs-sidebar-item" data-nav="sales" title="Sales"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+<div class="hs-sidebar-item" data-nav="service" title="Service"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+<div class="hs-sidebar-item" data-nav="content" title="Content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+<div class="hs-sidebar-item" data-nav="automation" title="Automation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div>
+<div class="hs-sidebar-item" data-nav="reports" title="Reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+</div>
+</div>
+<div class="hs-main">
+<div class="hs-header">
+<div class="hs-header-search">
+<svg class="hs-header-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<input type="text" id="global-search" placeholder="Search contacts, companies, deals...">
+<div class="hs-search-dropdown" id="search-dropdown"></div>
+</div>
+<div class="hs-header-actions">
+<div class="hs-header-btn hs-action-btn" title="Help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+<div class="hs-header-btn hs-action-btn" title="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><div class="hs-notification-badge"></div></div>
+<div class="hs-header-btn hs-action-btn" title="Create"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+<div class="hs-user-avatar">HS</div>
+</div>
+</div>
+<div class="hs-subnav">
+<div class="hs-subnav-item active" data-tab="contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts<span class="hs-subnav-badge">1,247</span></div>
+<div class="hs-subnav-item" data-tab="companies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-4h8v4"/></svg>Companies</div>
+<div class="hs-subnav-item" data-tab="deals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Deals</div>
+<div class="hs-subnav-item" data-tab="tickets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Tickets</div>
+<div class="hs-subnav-item" data-tab="products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Products</div>
+</div>
+<div class="hs-content">
+<div class="hs-tab-content active" id="tab-contacts">
+<div class="hs-page-header">
+<div><div class="hs-page-title">All contacts</div><div class="hs-page-subtitle">Manage and view all your contacts</div></div>
+<div class="hs-page-actions">
+<button class="hs-btn-ghost hs-action-btn">Import</button>
+<button class="hs-btn-ghost hs-action-btn">Export</button>
+<button class="hs-btn-primary hs-action-btn">+ Create contact</button>
+</div>
+</div>
+<div class="hs-stats-grid">
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total contacts</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">👥</div></div><div class="hs-stat-value">1,247</div><div class="hs-stat-change positive">↑ 12% this month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">New this week</div><div class="hs-stat-icon" style="background:#dbeafe;color:#2563eb">✨</div></div><div class="hs-stat-value">84</div><div class="hs-stat-change positive">↑ 8% vs last week</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Active leads</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">🎯</div></div><div class="hs-stat-value">312</div><div class="hs-stat-change positive">↑ 24 new</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Customers</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">💎</div></div><div class="hs-stat-value">589</div><div class="hs-stat-change positive">↑ 47% conversion</div></div>
+</div>
+<div class="hs-table-container">
+<div class="hs-table-toolbar">
+<div class="hs-table-toolbar-left">
+<div class="hs-table-search"><svg class="hs-table-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" id="table-search" placeholder="Search contacts..."></div>
+<button class="hs-filter-chip active" data-filter="all">All</button>
+<button class="hs-filter-chip" data-filter="customer">Customers</button>
+<button class="hs-filter-chip" data-filter="lead">Leads</button>
+<button class="hs-filter-chip" data-filter="subscriber">Subscribers</button>
+</div>
+</div>
+<div style="overflow-x:auto">
+<table class="hs-table"><thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Stage</th><th>Last activity</th></tr></thead><tbody id="contacts-tbody"></tbody></table>
+</div>
+<div class="hs-table-footer"><div id="table-count">Showing 8 of 8 contacts</div><div style="display:flex;gap:4px"><button style="width:32px;height:32px;border-radius:6px;border:1px solid #d1d5db;background:#fff;cursor:pointer">‹</button><button style="width:32px;height:32px;border-radius:6px;border:1px solid #ff7a59;background:#ff7a59;color:#fff;cursor:pointer">1</button><button style="width:32px;height:32px;border-radius:6px;border:1px solid #d1d5db;background:#fff;cursor:pointer">›</button></div></div>
+</div>
+</div>
+<div class="hs-tab-content" id="tab-companies">
+<div class="hs-page-header"><div><div class="hs-page-title">Companies</div><div class="hs-page-subtitle">Track and manage your company records</div></div><button class="hs-btn-primary hs-action-btn">+ Create company</button></div>
+<div class="hs-stats-grid">
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total companies</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">🏢</div></div><div class="hs-stat-value">342</div><div class="hs-stat-change positive">↑ 18 this month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Active accounts</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">✅</div></div><div class="hs-stat-value">287</div><div class="hs-stat-change positive">↑ 84% active</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Enterprise</div><div class="hs-stat-icon" style="background:#ede9fe;color:#7c3aed">👑</div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 6 new</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Revenue tracked</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">💰</div></div><div class="hs-stat-value">$4.2M</div><div class="hs-stat-change positive">↑ 23% QoQ</div></div>
+</div>
+<div class="hs-table-container"><div style="overflow-x:auto"><table class="hs-table"><thead><tr><th>Company</th><th>Industry</th><th>Contacts</th><th>Revenue</th><th>Owner</th></tr></thead><tbody>
+<tr><td><div class="hs-contact-cell"><div class="hs-avatar" style="background:#ff7a59">TC</div><div><div class="hs-contact-name">TechCorp Inc</div><div class="hs-contact-email">techcorp.com</div></div></div></td><td>Technology</td><td>47</td><td>$2.4M</td><td>Harshdeep S.</td></tr>
+<tr><td><div class="hs-contact-cell"><div class="hs-avatar" style="background:#6d28d9">SI</div><div><div class="hs-contact-name">StartupIO</div><div class="hs-contact-email">startup.io</div></div></div></td><td>SaaS</td><td>23</td><td>$840K</td><td>Harshdeep S.</td></tr>
+<tr><td><div class="hs-contact-cell"><div class="hs-avatar" style="background:#4285f4">EL</div><div><div class="hs-contact-name">Enterprise LLC</div><div class="hs-contact-email">enterprise.com</div></div></div></td><td>Finance</td><td>156</td><td>$12.8M</td><td>Harshdeep S.</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="hs-tab-content" id="tab-deals">
+<div class="hs-page-header"><div><div class="hs-page-title">Deals</div><div class="hs-page-subtitle">$847,500 total pipeline value • 47 open deals</div></div><button class="hs-btn-primary hs-action-btn">+ Create deal</button></div>
+<div class="hs-stats-grid">
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Open deals</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">📊</div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 8 new this week</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Pipeline value</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">💵</div></div><div class="hs-stat-value">$847K</div><div class="hs-stat-change positive">↑ 23% vs last month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Won this month</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">🏆</div></div><div class="hs-stat-value">12</div><div class="hs-stat-change positive">$284K revenue</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Avg deal size</div><div class="hs-stat-icon" style="background:#ede9fe;color:#7c3aed">📈</div></div><div class="hs-stat-value">$18K</div><div class="hs-stat-change positive">↑ $3K vs avg</div></div>
+</div>
+<div style="display:flex;gap:16px;overflow-x:auto;padding-bottom:12px">
+<div style="min-width:240px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:16px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e5e7eb"><span style="font-size:13px;font-weight:700;color:#111827;text-transform:uppercase;letter-spacing:.5px">Qualified</span><span style="font-size:12px;color:#6b7280;font-weight:600">$65.4K</span></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer" onmouseover="this.style.borderColor='#ff7a59'" onmouseout="this.style.borderColor='#e5e7eb'"><div style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px">Enterprise License</div><div style="font-size:12px;color:#6b7280">TechCorp Inc</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #f3f4f6"><div style="font-size:13px;font-weight:700;color:#ff7a59">$45,000</div><div style="font-size:11px;color:#9ca3af">2 days ago</div></div></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer" onmouseover="this.style.borderColor='#ff7a59'" onmouseout="this.style.borderColor='#e5e7eb'"><div style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px">Annual Subscription</div><div style="font-size:12px;color:#6b7280">StartupIO</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #f3f4f6"><div style="font-size:13px;font-weight:700;color:#ff7a59">$12,000</div><div style="font-size:11px;color:#9ca3af">5 days ago</div></div></div>
+</div>
+<div style="min-width:240px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:16px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e5e7eb"><span style="font-size:13px;font-weight:700;color:#111827;text-transform:uppercase;letter-spacing:.5px">Proposal</span><span style="font-size:12px;color:#6b7280;font-weight:600">$192.5K</span></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer" onmouseover="this.style.borderColor='#ff7a59'" onmouseout="this.style.borderColor='#e5e7eb'"><div style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px">Full Platform Migration</div><div style="font-size:12px;color:#6b7280">Global Solutions</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #f3f4f6"><div style="font-size:13px;font-weight:700;color:#ff7a59">$125,000</div><div style="font-size:11px;color:#9ca3af">3 days ago</div></div></div>
+</div>
+<div style="min-width:240px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:16px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #059669"><span style="font-size:13px;font-weight:700;color:#111827;text-transform:uppercase;letter-spacing:.5px">Closed Won</span><span style="font-size:12px;color:#059669;font-weight:600">$284K</span></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid #059669;border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer"><div style="font-size:14px;font-weight:600;color:#111827;margin-bottom:4px">Annual Contract</div><div style="font-size:12px;color:#6b7280">TechCorp Inc</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #f3f4f6"><div style="font-size:13px;font-weight:700;color:#059669">$72,000 ✓</div><div style="font-size:11px;color:#9ca3af">Won 2 days ago</div></div></div>
+</div>
+</div>
+</div>
+<div class="hs-tab-content" id="tab-tickets">
+<div class="hs-page-header"><div><div class="hs-page-title">Tickets</div><div class="hs-page-subtitle">23 open • 18 resolved today • 4.8/5 CSAT</div></div><button class="hs-btn-primary hs-action-btn">+ Create ticket</button></div>
+<div class="hs-table-container"><div style="overflow-x:auto"><table class="hs-table"><thead><tr><th>Ticket</th><th>Subject</th><th>Contact</th><th>Priority</th><th>Status</th><th>Created</th></tr></thead><tbody>
+<tr><td style="font-weight:600;color:#ff7a59">#4821</td><td style="font-weight:600">API integration not syncing</td><td>Sarah Johnson</td><td><span class="hs-badge hs-badge-lead">High</span></td><td><span class="hs-badge hs-badge-subscriber">In Progress</span></td><td>2 hours ago</td></tr>
+<tr><td style="font-weight:600;color:#ff7a59">#4820</td><td style="font-weight:600">Billing question on invoice</td><td>Mike Chen</td><td><span class="hs-badge hs-badge-other">Medium</span></td><td><span class="hs-badge hs-badge-customer">Resolved</span></td><td>Yesterday</td></tr>
+<tr><td style="font-weight:600;color:#ff7a59">#4819</td><td style="font-weight:600">Feature request: custom reports</td><td>Emma Davis</td><td><span class="hs-badge hs-badge-other">Low</span></td><td><span class="hs-badge hs-badge-lead">Open</span></td><td>2 days ago</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="hs-tab-content" id="tab-products">
+<div class="hs-page-header"><div><div class="hs-page-title">Products</div><div class="hs-page-subtitle">Manage your product catalog and pricing</div></div><button class="hs-btn-primary hs-action-btn">+ Create product</button></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px">
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s" onmouseover="this.style.boxShadow='0 8px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'"><div style="height:120px;background:linear-gradient(135deg,#ff7a59,#ff9a7e);display:flex;align-items:center;justify-content:center;font-size:40px">📦</div><div style="padding:16px"><div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:6px">CRM Professional</div><div style="font-size:12px;color:#6b7280"><span style="color:#ff7a59;font-weight:600">$800/mo</span> • 47 deals</div></div></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s" onmouseover="this.style.boxShadow='0 8px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'"><div style="height:120px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:40px">📧</div><div style="padding:16px"><div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:6px">Marketing Hub</div><div style="font-size:12px;color:#6b7280"><span style="color:#6d28d9;font-weight:600">$3,200/mo</span> • 23 deals</div></div></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s" onmouseover="this.style.boxShadow='0 8px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'"><div style="height:120px;background:linear-gradient(135deg,#4285f4,#6ea8fe);display:flex;align-items:center;justify-content:center;font-size:40px">⚙️</div><div style="padding:16px"><div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:6px">Automation Add-on</div><div style="font-size:12px;color:#6b7280"><span style="color:#4285f4;font-weight:600">$400/mo</span> • 89 deals</div></div></div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s" onmouseover="this.style.boxShadow='0 8px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'"><div style="height:120px;background:linear-gradient(135deg,#10b981,#34d399);display:flex;align-items:center;justify-content:center;font-size:40px">🎯</div><div style="padding:16px"><div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:6px">Sales Hub</div><div style="font-size:12px;color:#6b7280"><span style="color:#10b981;font-weight:600">$500/mo</span> • 34 deals</div></div></div>
+</div>
+</div>
+<div class="hs-tab-content" id="tab-automation">
+<div class="hs-page-header"><div><div class="hs-page-title">Workflows</div><div class="hs-page-subtitle">24 active workflows • 8,420 enrollments this month</div></div><button class="hs-btn-primary hs-action-btn">+ Create workflow</button></div>
+<div class="hs-stats-grid">
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Active workflows</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">⚡</div></div><div class="hs-stat-value">24</div><div class="hs-stat-change positive">↑ 3 new this month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total enrollments</div><div class="hs-stat-icon" style="background:#dbeafe;color:#2563eb">👥</div></div><div class="hs-stat-value">8,420</div><div class="hs-stat-change positive">↑ 1,247 this week</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Actions completed</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">✅</div></div><div class="hs-stat-value">42.8K</div><div class="hs-stat-change positive">↑ 18% vs last month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Time saved</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">⏱</div></div><div class="hs-stat-value">284h</div><div class="hs-stat-change positive">Monthly automation</div></div>
+</div>
+<div class="wf-builder">
+<div class="wf-header">
+<div class="wf-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>Monthly Partner Scorecard Dispatch</div>
+<div style="display:flex;gap:8px;align-items:center"><div class="wf-status active"><div class="wf-dot"></div>Active</div><button class="hs-btn-secondary hs-action-btn" style="padding:6px 12px;font-size:12px">Edit</button></div>
+</div>
+<div class="wf-canvas">
+<div class="wf-node trigger"><div class="wf-node-icon" style="background:#fff1ec;color:#ff7a59">🎯</div><div class="wf-node-info"><div class="wf-node-label">Enrollment Trigger</div><div class="wf-node-name">Property updated: scorecard_data</div></div></div>
+<div class="wf-connector"></div>
+<div class="wf-node action"><div class="wf-node-icon" style="background:#dbeafe;color:#2563eb">🔗</div><div class="wf-node-info"><div class="wf-node-label">Action</div><div class="wf-node-name">Query external API by Company ID</div></div></div>
+<div class="wf-connector"></div>
+<div class="wf-node action"><div class="wf-node-icon" style="background:#fef3c7;color:#d97706">⚙️</div><div class="wf-node-info"><div class="wf-node-label">Action</div><div class="wf-node-name">Parse & format JSON response</div></div></div>
+<div class="wf-connector"></div>
+<div class="wf-node action"><div class="wf-node-icon" style="background:#d1fae5;color:#059669">💾</div><div class="wf-node-info"><div class="wf-node-label">Action</div><div class="wf-node-name">Update contact property: scorecard_json</div></div></div>
+<div class="wf-connector"></div>
+<div class="wf-node branch"><div class="wf-node-icon" style="background:#faf5ff;color:#7c3aed">🔀</div><div class="wf-node-info"><div class="wf-node-label">If/Then Branch</div><div class="wf-node-name">Has valid email? → Yes</div></div></div>
+<div class="wf-connector"></div>
+<div class="wf-node action"><div class="wf-node-icon" style="background:#fff1ec;color:#ff7a59">📧</div><div class="wf-node-info"><div class="wf-node-label">Action</div><div class="wf-node-name">Send email with HubL scorecard module</div></div></div>
+<div class="wf-add hs-action-btn" title="Add action"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+</div>
+</div>
+<div style="font-size:14px;font-weight:600;color:#111827;margin-bottom:12px">All Workflows</div>
+<div class="wf-list">
+<div class="wf-item hs-action-btn"><div class="wf-item-icon" style="background:#fff1ec;color:#e65100">🔄</div><div class="wf-item-info"><div class="wf-item-name">Partner Scorecard Monthly Dispatch</div><div class="wf-item-desc">Triggers on property update • Sends personalized email via HubL module</div></div><div class="wf-item-status active"><div class="wf-item-dot"></div>Active</div></div>
+<div class="wf-item hs-action-btn"><div class="wf-item-icon" style="background:#dbeafe;color:#1565c0">📧</div><div class="wf-item-info"><div class="wf-item-name">Lead Nurture Sequence</div><div class="wf-item-desc">5-email sequence over 14 days • Triggered on form submission</div></div><div class="wf-item-status active"><div class="wf-item-dot"></div>Active</div></div>
+<div class="wf-item hs-action-btn"><div class="wf-item-icon" style="background:#faf5ff;color:#7b1fa2">🔔</div><div class="wf-item-info"><div class="wf-item-name">Deal Stage Notifications</div><div class="wf-item-desc">Notifies sales team on stage changes • Slack + Email</div></div><div class="wf-item-status active"><div class="wf-item-dot"></div>Active</div></div>
+<div class="wf-item hs-action-btn"><div class="wf-item-icon" style="background:#d1fae5;color:#2e7d32">🔁</div><div class="wf-item-info"><div class="wf-item-name">Data Sync to External API</div><div class="wf-item-desc">Bidirectional sync • Runs daily at 2 AM</div></div><div class="wf-item-status paused"><div class="wf-item-dot"></div>Paused</div></div>
+<div class="wf-item hs-action-btn"><div class="wf-item-icon" style="background:#f3f4f6;color:#616161">📦</div><div class="wf-item-info"><div class="wf-item-name">Custom Object Migration</div><div class="wf-item-desc">Migrate legacy data to new custom objects • One-time run</div></div><div class="wf-item-status draft"><div class="wf-item-dot"></div>Draft</div></div>
+</div>
+</div>
+<div class="hs-tab-content" id="tab-reports">
+<div class="hs-page-header"><div><div class="hs-page-title">Analytics & Reports</div><div class="hs-page-subtitle">Performance metrics and insights across all hubs</div></div><div style="display:flex;gap:8px"><button class="hs-btn-secondary hs-action-btn">Last 30 days</button><button class="hs-btn-primary hs-action-btn">Export Report</button></div></div>
+<div class="hs-stats-grid">
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total Revenue</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">💰</div></div><div class="hs-stat-value">$284K</div><div class="hs-stat-change positive">↑ 23% vs last month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">New Contacts</div><div class="hs-stat-icon" style="background:#dbeafe;color:#2563eb">👥</div></div><div class="hs-stat-value">1,247</div><div class="hs-stat-change positive">↑ 12% this month</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Email Open Rate</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">📧</div></div><div class="hs-stat-value">42.3%</div><div class="hs-stat-change positive">↑ 5.2% avg</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Deal Conversion</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">🎯</div></div><div class="hs-stat-value">47%</div><div class="hs-stat-change positive">↑ 8% vs avg</div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Contact Growth</div><div style="color:#9ca3af;cursor:pointer">⋮</div></div>
+<div style="height:140px;display:flex;align-items:flex-end;gap:8px;padding:0 4px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:40%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jan</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:55%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Feb</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:45%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Mar</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:70%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Apr</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:60%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">May</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:85%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jun</div></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid #f3f4f6"><div style="font-size:20px;font-weight:700;color:#111827">+12%</div><div style="font-size:12px;font-weight:600;color:#059669">↑ this month</div></div>
+</div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Revenue by Source</div><div style="color:#9ca3af;cursor:pointer">⋮</div></div>
+<div style="height:140px;display:flex;align-items:flex-end;gap:8px;padding:0 4px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:75%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jan</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:60%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Feb</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:80%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Mar</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:45%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Apr</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:90%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">May</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:70%;background:linear-gradient(180deg,#6d28d9,#8b5cf6);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jun</div></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid #f3f4f6"><div style="font-size:20px;font-weight:700;color:#111827">$284K</div><div style="font-size:12px;font-weight:600;color:#059669">↑ 23% QoQ</div></div>
+</div>
+<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Email Performance</div><div style="color:#9ca3af;cursor:pointer">⋮</div></div>
+<div style="height:140px;display:flex;align-items:flex-end;gap:8px;padding:0 4px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:65%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jan</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:70%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Feb</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:55%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Mar</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:80%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Apr</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:75%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">May</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:90%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jun</div></div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid #f3f4f6"><div style="font-size:20px;font-weight:700;color:#111827">42.3%</div><div style="font-size:12px;font-weight:600;color:#059669">↑ avg open rate</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Objects</h4><p class="text-sm text-slate-600">Built 15+ custom objects to model complex business relationships.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Code Workflows</h4><p class="text-sm text-slate-600">Serverless functions and custom-coded actions within workflows.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom UI Extensions</h4><p class="text-sm text-slate-600">Embedded apps and custom cards using React and HubL.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Integration & Migration</h4><p class="text-sm text-slate-600">End-to-end CRM migrations and third-party integrations.</p></div>
+</div>
+</div>
+</section>
+<section class="section-make py-16 sm:py-24 relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none"><defs><pattern id="mg" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><polygon points="40,10 70,25 70,55 40,70 10,55 10,25" fill="none" stroke="#6d28d9" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#mg)"/></svg>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-10 sm:mb-16">
+<span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#6d28d9]/10 border border-[#6d28d9]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#6d28d9]"></div><span class="text-[#5b21b6] font-semibold text-xs sm:text-sm">VISUAL AUTOMATION</span></span>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Make.com<span class="block text-2xl sm:text-3xl md:text-4xl text-[#6d28d9] mt-2">Scenario Orchestration</span></h2>
+</div>
+<div class="reveal flex justify-center mb-10 sm:mb-16">
+<div style="position:relative;width:160px;height:160px">
+<svg class="animate-hex-rotate" style="transform-origin:100px 100px" width="160" height="160" viewBox="0 0 200 200">
+<polygon points="100,20 170,55 170,145 100,180 30,145 30,55" fill="none" stroke="#6d28d9" stroke-width="3" opacity=".3"/>
+</svg>
+<svg width="160" height="160" viewBox="0 0 200 200" style="position:absolute;top:0;left:0">
+<polygon points="100,30 160,60 160,140 100,170 40,140 40,60" fill="#6d28d9"/>
+<polygon points="100,55 140,75 140,125 100,145 60,125 60,75" fill="#f5f3ff"/>
+<text x="100" y="110" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="40" fill="#6d28d9">M</text>
+</svg>
+</div>
+</div>
+<div class="reveal mb-10 sm:mb-16">
+<div class="make-ui">
+<div class="make-sidebar">
+<div class="make-sidebar-header"><div class="make-logo">M</div><div><div class="make-sidebar-title">Scenarios</div><div class="make-sidebar-subtitle">E-commerce Flow</div></div></div>
+<div class="make-module-list">
+<div class="make-module-category">Triggers</div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#000;color:#fff">🛍</div><div class="make-module-name">Shopify</div><div class="make-module-count">Watch</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#0077B5;color:#fff">✉</div><div class="make-module-name">Gmail</div><div class="make-module-count">Watch</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#FF6600;color:#fff">📋</div><div class="make-module-name">Airtable</div><div class="make-module-count">Watch</div></div>
+<div class="make-module-category">Actions</div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#4A154B;color:#fff">💬</div><div class="make-module-name">Slack</div><div class="make-module-count">Send</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#00A4EF;color:#fff">📊</div><div class="make-module-name">Google Sheets</div><div class="make-module-count">Add Row</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#ff7a59;color:#fff">🎯</div><div class="make-module-name">HubSpot</div><div class="make-module-count">Create</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#00a1e0;color:#fff">☁</div><div class="make-module-name">Salesforce</div><div class="make-module-count">Create</div></div>
+<div class="make-module-category">Flow Control</div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#6d28d9;color:#fff">🔀</div><div class="make-module-name">Router</div><div class="make-module-count">Branch</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#10b981;color:#fff">🔄</div><div class="make-module-name">Iterator</div><div class="make-module-count">Loop</div></div>
+</div>
+</div>
+<div class="make-main">
+<div class="make-topbar">
+<div class="make-scenario-info">
+<div><div class="make-scenario-name">E-commerce Order Processing</div><div style="font-size:11px;color:#8b8ba7;margin-top:2px">Last run: 2 min ago • 12,847 operations</div></div>
+<div class="make-scenario-status"><div class="dot"></div>Active</div>
+</div>
+<div class="make-topbar-actions">
+<button class="make-btn make-btn-secondary make-action-btn">Share</button>
+<button class="make-btn make-btn-secondary make-action-btn">Schedule</button>
+<button class="make-btn make-btn-run make-action-btn">▶ Run once</button>
+</div>
+</div>
+<div class="make-canvas" id="make-canvas">
+<svg class="make-canvas-svg" id="make-svg"></svg>
+<div class="make-node make-action-btn" style="left:60px;top:80px" data-module="shopify"><div class="make-node-number">1</div><div class="make-node-icon" style="background:#000;color:#fff">🛍</div><div class="make-node-label">Shopify</div><div class="make-node-sublabel">Watch Orders</div></div>
+<div class="make-node make-action-btn" style="left:240px;top:80px" data-module="router"><div class="make-node-number">2</div><div class="make-node-icon" style="background:#6d28d9;color:#fff">🔀</div><div class="make-node-label">Router</div><div class="make-node-sublabel">Filter Orders</div></div>
+<div class="make-node make-action-btn" style="left:420px;top:40px" data-module="airtable"><div class="make-node-number">3</div><div class="make-node-icon" style="background:#0077B5;color:#fff">📋</div><div class="make-node-label">Airtable</div><div class="make-node-sublabel">Create Record</div></div>
+<div class="make-node make-action-btn" style="left:420px;top:140px" data-module="slack"><div class="make-node-number">4</div><div class="make-node-icon" style="background:#4A154B;color:#fff">💬</div><div class="make-node-label">Slack</div><div class="make-node-sublabel">Send Message</div></div>
+<div class="make-node make-action-btn" style="left:600px;top:90px" data-module="hubspot"><div class="make-node-number">5</div><div class="make-node-icon" style="background:#ff7a59;color:#fff">🎯</div><div class="make-node-label">HubSpot</div><div class="make-node-sublabel">Create Contact</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal grid md:grid-cols-3 gap-4 sm:gap-6">
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#6d28d9]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Advanced Routers</h4><p class="text-xs sm:text-sm text-slate-600">Complex conditional branching with 20+ paths.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#6d28d9]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Error Handling</h4><p class="text-xs sm:text-sm text-slate-600">Robust retry logic and error directives.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#6d28d9]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">HTTP & JSON</h4><p class="text-xs sm:text-sm text-slate-600">Custom API calls with advanced JSON parsing.</p></div>
+</div>
+</div>
+</section>
+<section class="section-zapier py-16 sm:py-24 relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none"><defs><pattern id="zg" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25 0 L50 25 L25 50 L0 25 Z" fill="none" stroke="#ff4f00" stroke-width=".5"/></pattern></defs><rect width="100%" height="100%" fill="url(#zg)"/></svg>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-10 sm:mb-16">
+<span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#ff4f00]/10 border border-[#ff4f00]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#ff4f00]"></div><span class="text-[#e04600] font-semibold text-xs sm:text-sm">QUICK INTEGRATION</span></span>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Zapier<span class="block text-2xl sm:text-3xl md:text-4xl text-[#ff4f00] mt-2">Multi-Step Automation</span></h2>
+</div>
+<div class="reveal flex justify-center mb-10 sm:mb-16">
+<div style="position:relative;width:160px;height:160px">
+<svg width="160" height="160" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="80" fill="#ff4f00" opacity=".1"><animate attributeName="r" values="80;90;80" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".1;.2;.1" dur="3s" repeatCount="indefinite"/></circle>
+<g class="animate-bolt-flash"><path d="M110 20 L60 110 L95 110 L85 180 L140 90 L105 90 L110 20Z" fill="#ff4f00" stroke="#e04600" stroke-width="2"/></g>
+<text x="100" y="115" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="30" fill="white">Z</text>
+</svg>
+</div>
+</div>
+<div class="reveal mb-10 sm:mb-16">
+<div class="zap-ui">
+<div class="zap-sidebar">
+<div class="zap-sidebar-header"><div class="zap-logo">Z</div><div class="zap-sidebar-title">My Zaps</div></div>
+<div class="zap-nav">
+<div class="zap-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>Lead Sync Zap</div>
+<div class="zap-nav-item make-action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Form to CRM</div>
+<div class="zap-nav-item make-action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Slack Notifications</div>
+<div class="zap-nav-item make-action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Daily Report</div>
+<div class="zap-nav-item make-action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Doc Generator</div>
+<div style="margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb"><div class="zap-nav-item make-action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Create Zap</div></div>
+</div>
+</div>
+<div class="zap-main">
+<div class="zap-topbar">
+<div class="zap-zap-info">
+<div><div class="zap-zap-name">Lead Sync Zap</div><div style="font-size:11px;color:#6b7280;margin-top:2px">Last ran successfully 5 min ago</div></div>
+<div class="zap-toggle" id="zap-toggle" onclick="toggleZap()"></div>
+</div>
+<div class="zap-topbar-actions">
+<button class="zap-btn zap-btn-secondary make-action-btn">Test</button>
+<button class="zap-btn zap-btn-primary make-action-btn">Publish</button>
+</div>
+</div>
+<div class="zap-editor">
+<div class="zap-step trigger make-action-btn">
+<div class="zap-step-number">1</div>
+<div class="zap-step-content">
+<div class="zap-step-header"><div class="zap-step-label">Trigger</div><div class="zap-step-status">✓ Connected</div></div>
+<div class="zap-step-app"><div class="zap-app-icon" style="background:#1877F2;color:#fff">f</div><div><div class="zap-app-name">Facebook Lead Ads</div><div class="zap-action-name">New Lead</div></div></div>
+</div>
+</div>
+<div class="zap-step-connector"></div>
+<div class="zap-step make-action-btn">
+<div class="zap-step-number">2</div>
+<div class="zap-step-content">
+<div class="zap-step-header"><div class="zap-step-label">Action</div><div class="zap-step-status">✓ Configured</div></div>
+<div class="zap-step-app"><div class="zap-app-icon" style="background:#ff4f00;color:#fff">Z</div><div><div class="zap-app-name">Code by Zapier</div><div class="zap-action-name">Run Python (Deduplication)</div></div></div>
+</div>
+</div>
+<div class="zap-step-connector"></div>
+<div class="zap-step make-action-btn">
+<div class="zap-step-number">3</div>
+<div class="zap-step-content">
+<div class="zap-step-header"><div class="zap-step-label">Action</div><div class="zap-step-status">✓ Connected</div></div>
+<div class="zap-step-app"><div class="zap-app-icon" style="background:#00A1E0;color:#fff">SF</div><div><div class="zap-app-name">Salesforce</div><div class="zap-action-name">Create Lead</div></div></div>
+</div>
+</div>
+<div class="zap-step-connector"></div>
+<div class="zap-add-step make-action-btn"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add Step</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal grid md:grid-cols-3 gap-4 sm:gap-6">
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff4f00]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">5000+ Apps</h4><p class="text-xs sm:text-sm text-slate-600">Connect any combination of tools.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff4f00]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Code Steps</h4><p class="text-xs sm:text-sm text-slate-600">Python & JavaScript for custom logic.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff4f00]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Multi-Step Zaps</h4><p class="text-xs sm:text-sm text-slate-600">Complex workflows with filters and paths.</p></div>
+</div>
+</div>
+</section>
+<section class="section-gas py-16 sm:py-24 relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none"><defs><pattern id="gg" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20h40M20 0v40" stroke="#4285f4" stroke-width=".5"/></pattern></defs><rect width="100%" height="100%" fill="url(#gg)"/></svg>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-10 sm:mb-16">
+<span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#4285f4]/10 border border-[#4285f4]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#4285f4]"></div><span class="text-[#2b6de0] font-semibold text-xs sm:text-sm">CUSTOM SCRIPTING</span></span>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Google Apps<span class="block text-2xl sm:text-3xl md:text-4xl text-[#4285f4] mt-2">Script Development</span></h2>
+</div>
+<div class="reveal flex justify-center mb-10 sm:mb-16">
+<div style="position:relative;width:160px;height:160px">
+<svg width="160" height="160" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="85" fill="none" stroke="#4285f4" stroke-width="8" stroke-dasharray="134 400"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="100" r="85" fill="none" stroke="#ea4335" stroke-width="8" stroke-dasharray="134 400" stroke-dashoffset="-134"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="100" r="85" fill="none" stroke="#fbbc04" stroke-width="8" stroke-dasharray="134 400" stroke-dashoffset="-268"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="100" r="85" fill="none" stroke="#34a853" stroke-width="8" stroke-dasharray="134 400" stroke-dashoffset="-402"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
+<path d="M70 80 L50 100 L70 120" fill="none" stroke="#4285f4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M130 80 L150 100 L130 120" fill="none" stroke="#34a853" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M110 70 L90 130" fill="none" stroke="#ea4335" stroke-width="6" stroke-linecap="round"/>
+</svg>
+</div>
+</div>
+<div class="reveal mb-10 sm:mb-16">
+<div class="gas-ui">
+<div class="gas-sidebar">
+<div class="gas-sidebar-header"><div class="gas-logo">GS</div><div><div class="gas-sidebar-title">Invoice Automation</div><div class="gas-sidebar-subtitle">Project • v2.1</div></div></div>
+<div class="gas-file-list">
+<div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px 4px">Files</div>
+<div class="gas-file-item active" data-file="code"><div class="gas-file-icon">📄</div>Code.gs</div>
+<div class="gas-file-item" data-file="html"><div class="gas-file-icon">🌐</div>Invoice.html</div>
+<div class="gas-file-item" data-file="utils"><div class="gas-file-icon">🔧</div>Utils.gs</div>
+<div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:16px 12px 4px">Services</div>
+<div class="gas-file-item"><div class="gas-file-icon">📊</div>Spreadsheet</div>
+<div class="gas-file-item"><div class="gas-file-icon">📧</div>Gmail</div>
+<div class="gas-file-item"><div class="gas-file-icon">📁</div>Drive</div>
+<div class="gas-file-item"><div class="gas-file-icon">📅</div>Calendar</div>
+<div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:16px 12px 4px">Triggers</div>
+<div class="gas-file-item make-action-btn"><div class="gas-file-icon">⏰</div>onOpen()</div>
+<div class="gas-file-item make-action-btn"><div class="gas-file-icon">⏰</div>onEdit(e)</div>
+<div class="gas-file-item make-action-btn"><div class="gas-file-icon">🕐</div>timeDriven</div>
+</div>
+</div>
+<div class="gas-main">
+<div class="gas-topbar">
+<div class="gas-filename"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><span id="current-filename">Code.gs</span><span style="font-size:11px;color:#5f6368;font-weight:400;margin-left:8px">• Saved</span></div>
+<div class="gas-topbar-actions">
+<button class="gas-btn gas-btn-debug make-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Debug</button>
+<button class="gas-btn gas-btn-run" id="gas-run-btn" onclick="runGasCode()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg><span id="run-btn-text">Run</span></button>
+</div>
+</div>
+<div class="gas-editor-area">
+<div class="gas-line-numbers" id="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20</div>
+<div class="gas-code" id="code-editor"><span class="comment">// Invoice Automation Script</span>
+<span class="comment">// Generates and emails invoices from Google Sheets</span>
+<span class="keyword">function</span> <span class="function">generateInvoices</span>() {
+<span class="keyword">const</span> <span class="variable">sheet</span> = SpreadsheetApp
+.getActiveSheet();
+<span class="keyword">const</span> <span class="variable">data</span> = sheet.getDataRange()
+.getValues();
+<span class="keyword">let</span> <span class="variable">invoiceCount</span> = <span class="number">0</span>;
+<span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> = <span class="number">1</span>; i < data.length; i++) {
+<span class="keyword">const</span> [<span class="variable">name</span>, <span class="variable">email</span>, <span class="variable">amount</span>] = data[i];
+<span class="function">sendInvoice</span>(email, name, amount);
+invoiceCount++;
+}
+<span class="keyword">return</span> <span class="string">`Generated ${invoiceCount} invoices`</span>;
+}</div>
+</div>
+<div class="gas-console" id="gas-console"><div class="gas-console-line info">[Execution Log]</div></div>
+<div class="gas-output" id="gas-output"><div style="font-size:13px;font-weight:600;color:#202124;margin-bottom:8px">Execution Result</div><div id="gas-output-content" style="font-family:monospace;font-size:13px;color:#059669"></div></div>
+</div>
+</div>
+</div>
+<div class="reveal grid md:grid-cols-3 gap-4 sm:gap-6">
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#4285f4]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Sheets Integration</h4><p class="text-xs sm:text-sm text-slate-600">Read, write, and manipulate spreadsheet data.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#4285f4]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Gmail Automation</h4><p class="text-xs sm:text-sm text-slate-600">Send personalized emails with HTML templates.</p></div>
+<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#4285f4]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Custom Menus</h4><p class="text-xs sm:text-sm text-slate-600">Add custom UI to Google Workspace apps.</p></div>
+</div>
+</div>
+</section>
+<section id="projects" class="py-16 sm:py-24 relative overflow-hidden" style="background:linear-gradient(180deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%)">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-20 left-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+<div class="absolute inset-0" style="background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-12 sm:mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6"><div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></div><span class="text-orange-400 font-display font-bold text-xs sm:text-sm tracking-widest uppercase">Featured Work</span></div>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6">Case Studies</h2>
+<p class="text-white/60 max-w-2xl mx-auto text-sm sm:text-base">Real projects. Real impact. Click any project to explore the full details.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<div class="reveal cs-card" style="--card-accent:#ff7a59;--card-glow:rgba(255,122,89,.3)" onclick="openDetail('homee')">
+<div class="card-shine"></div>
+<div class="card-gradient-bg" style="background:linear-gradient(135deg,#ff7a59 0%,#e8634a 100%)"></div>
+<div class="relative p-6 sm:p-8">
+<div class="flex items-start justify-between mb-6">
+<div class="card-logo-badge" style="background:linear-gradient(135deg,#ff7a59,#e8634a)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+<div class="card-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>InsurTech</div>
+</div>
+<h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">Automated Monthly Scorecard</h3>
+<p class="text-white/60 text-sm leading-relaxed mb-6">Personalized performance scorecards for thousands of service network partners via HubSpot + external API.</p>
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="card-metric"><div class="card-metric-value" style="color:#ff7a59">100s</div><div class="card-metric-label">Hours saved monthly</div></div>
+<div class="card-metric"><div class="card-metric-value" style="color:#ff7a59">1,000s</div><div class="card-metric-label">Partners reached</div></div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6"><span class="card-tech-pill">HubSpot</span><span class="card-tech-pill">HubL</span><span class="card-tech-pill">REST API</span><span class="card-tech-pill">Looker</span></div>
+<div class="flex items-center justify-between pt-4 border-t border-white/10"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div><span class="text-xs text-white/50">Live Project</span></div><div class="card-cta" style="--card-accent:#ff7a59">View Case Study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+</div>
+</div>
+<div class="reveal cs-card" style="--card-accent:#8b5cf6;--card-glow:rgba(139,92,246,.3)" onclick="openDetail('hochheiden')">
+<div class="card-shine"></div>
+<div class="card-gradient-bg" style="background:linear-gradient(135deg,#8b5cf6 0%,#6d28d9 100%)"></div>
+<div class="relative p-6 sm:p-8">
+<div class="flex items-start justify-between mb-6">
+<div class="card-logo-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg></div>
+<div class="card-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Real Estate</div>
+</div>
+<h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">Custom Objects & MCP</h3>
+<p class="text-white/60 text-sm leading-relaxed mb-6">Connected Claude AI to custom HubSpot CRM via secure MCP server for real-time property data queries.</p>
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="card-metric"><div class="card-metric-value" style="color:#8b5cf6">30+</div><div class="card-metric-label">AI tools exposed</div></div>
+<div class="card-metric"><div class="card-metric-value" style="color:#8b5cf6">$0</div><div class="card-metric-label">Hosting cost</div></div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6"><span class="card-tech-pill">HubSpot</span><span class="card-tech-pill">Claude AI</span><span class="card-tech-pill">MCP</span><span class="card-tech-pill">Render</span></div>
+<div class="flex items-center justify-between pt-4 border-t border-white/10"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div><span class="text-xs text-white/50">Live Project</span></div><div class="card-cta" style="--card-accent:#8b5cf6">View Case Study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+</div>
+</div>
+<div class="reveal cs-card md:col-span-2 lg:col-span-1" style="--card-accent:#10b981;--card-glow:rgba(16,185,129,.3)" onclick="openDetail('scorebuddy')">
+<div class="card-shine"></div>
+<div class="card-gradient-bg" style="background:linear-gradient(135deg,#10b981 0%,#059669 100%)"></div>
+<div class="relative p-6 sm:p-8">
+<div class="flex items-start justify-between mb-6">
+<div class="card-logo-badge" style="background:linear-gradient(135deg,#10b981,#059669)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div>
+<div class="card-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>SaaS / CX</div>
+</div>
+<h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">ROI Calculator & PDF</h3>
+<p class="text-white/60 text-sm leading-relaxed mb-6">Turned a marketing page into a lead-generating ROI tool with gated results and automated PDF reports.</p>
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="card-metric"><div class="card-metric-value" style="color:#10b981">1-Click</div><div class="card-metric-label">Report unlock</div></div>
+<div class="card-metric"><div class="card-metric-value" style="color:#10b981">100%</div><div class="card-metric-label">Automated</div></div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6"><span class="card-tech-pill">HubSpot</span><span class="card-tech-pill">JavaScript</span><span class="card-tech-pill">PDF CreateMate</span></div>
+<div class="flex items-center justify-between pt-4 border-t border-white/10"><div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div><span class="text-xs text-white/50">Live Project</span></div><div class="card-cta" style="--card-accent:#10b981">View Case Study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+</div>
+</div>
+</div>
+<div class="reveal mt-16 text-center">
+<div class="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl glass"><div class="text-left"><div class="text-white font-display font-bold text-lg">Want similar results?</div><div class="text-white/60 text-sm">Let's discuss your next project</div></div><a href="#contact" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-orange-500/30 transition-all hover:-translate-y-1 text-sm whitespace-nowrap">Get in Touch →</a></div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-16 sm:py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%)">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+<div class="absolute inset-0" style="background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+<div class="reveal text-center mb-12 sm:mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6"><div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></div><span class="text-orange-400 font-display font-bold text-xs sm:text-sm tracking-widest uppercase">Get in Touch</span></div>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6">Let's Build Something<br><span class="bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">Amazing Together</span></h2>
+<p class="text-white/60 max-w-2xl mx-auto text-sm sm:text-base">Have a complex automation challenge? I'd love to hear about it.</p>
+</div>
+<div class="grid lg:grid-cols-5 gap-6 sm:gap-8">
+<div class="reveal lg:col-span-2 space-y-4">
+<div class="contact-card p-6">
+<h3 class="font-display text-xl font-bold text-white mb-6">Contact Information</h3>
+<div class="space-y-4">
+<a href="mailto:harshdeepsingh2809@gmail.com" class="contact-method make-action-btn" style="text-decoration:none;color:inherit">
+<div class="contact-method-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+<div><div class="contact-method-label">Email</div><div class="contact-method-value">harshdeepsingh2809@gmail.com</div></div>
+</a>
+<a href="tel:+916239208166" class="contact-method make-action-btn" style="text-decoration:none;color:inherit">
+<div class="contact-method-icon" style="background:linear-gradient(135deg,#10b981,#059669)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+<div><div class="contact-method-label">Phone</div><div class="contact-method-value">+91 6239208166</div></div>
+</a>
+<a href="https://www.linkedin.com/in/sudo-harsh" target="_blank" class="contact-method make-action-btn" style="text-decoration:none;color:inherit">
+<div class="contact-method-icon" style="background:linear-gradient(135deg,#0077B5,#00a0dc)"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
+<div><div class="contact-method-label">LinkedIn</div><div class="contact-method-value">linkedin.com/in/sudo-harsh</div></div>
+</a>
+</div>
+<div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)">
+<div style="font-size:12px;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">Follow Me</div>
+<div style="display:flex;gap:12px">
+<a href="https://www.linkedin.com/in/sudo-harsh" target="_blank" class="make-action-btn" style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:all .2s;text-decoration:none" onmouseover="this.style.background='rgba(255,122,89,.2)';this.style.borderColor='#ff7a59';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.7)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+<a href="mailto:harshdeepsingh2809@gmail.com" class="make-action-btn" style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:all .2s;text-decoration:none" onmouseover="this.style.background='rgba(255,122,89,.2)';this.style.borderColor='#ff7a59';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.7)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+<a href="tel:+916239208166" class="make-action-btn" style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:all .2s;text-decoration:none" onmouseover="this.style.background='rgba(255,122,89,.2)';this.style.borderColor='#ff7a59';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.7)'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal lg:col-span-3">
+<div class="contact-card p-6 sm:p-8">
+<h3 class="font-display text-xl font-bold text-white mb-6">Send a Message</h3>
+<div id="contact-form-wrapper">
+<form id="contact-form" class="space-y-5" onsubmit="handleContactSubmit(event)">
+<div class="grid sm:grid-cols-2 gap-4"><div><label class="form-label">Your Name</label><input type="text" name="user_name" required class="form-input" placeholder="John Doe"></div><div><label class="form-label">Email Address</label><input type="email" name="user_email" required class="form-input" placeholder="john@company.com"></div></div>
+<div><label class="form-label">Project Type</label><select name="project_type" required class="form-input" style="cursor:pointer"><option value="" class="bg-slate-800">Select a project type</option><option value="HubSpot Development" class="bg-slate-800">HubSpot Development</option><option value="Make.com Automation" class="bg-slate-800">Make.com Automation</option><option value="Zapier Integration" class="bg-slate-800">Zapier Integration</option><option value="Google Apps Script" class="bg-slate-800">Google Apps Script</option><option value="Full CRM Architecture" class="bg-slate-800">Full CRM Architecture</option></select></div>
+<div><label class="form-label">Project Details</label><textarea name="message" rows="5" required class="form-input" placeholder="Tell me about your project, goals, and timeline..." style="resize:none"></textarea></div>
+<button type="submit" id="contact-submit-btn" class="w-full py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-orange-500/30 transition-all hover:-translate-y-1 text-sm sm:text-base flex items-center justify-center gap-2">
+<span id="contact-btn-text" class="flex items-center gap-2">Send Message<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+<span id="contact-btn-loader" class="hidden flex items-center gap-2"><span class="contact-spinner"></span>Sending...</span>
+</button>
+</form>
+</div>
+<div id="contact-thankyou" class="hidden contact-thankyou text-center py-8">
+<div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/30">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">Thank You!</h3>
+<p class="text-white/70 mb-6 max-w-md mx-auto">Your message has been sent successfully. I'll get back to you within 24 hours.</p>
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium mb-6">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+Message delivered successfully
+</div>
+<p class="text-white/50 text-sm">Feel free to reach out directly at <a href="mailto:harshdeepsingh2809@gmail.com" class="text-orange-400 font-medium hover:underline">harshdeepsingh2809@gmail.com</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-950 py-6 sm:py-8 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+<div class="flex items-center gap-2 sm:gap-3"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-orange-400 to-purple-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm">HS</div><span class="text-white/50 text-xs sm:text-sm">© 2024 Harshdeep Singh. All rights reserved.</span></div>
+</div>
+</footer>
+<div id="detail-overlay" class="detail-overlay" onclick="closeDetail()"></div>
+<div id="detail-panel" class="detail-panel">
+<div id="detail-content" class="relative z-10"></div>
+</div>
+<script>
+function showToast(title,message,icon='🔔'){
+const c=document.getElementById('toast-container');
+const t=document.createElement('div');
+t.className='toast';
+t.innerHTML=`<div class="toast-icon">${icon}</div><div class="toast-content"><div class="toast-title">${title}</div><div class="toast-message">${message}</div></div><button class="toast-close" onclick="this.parentElement.classList.add('removing');setTimeout(()=>this.parentElement.remove(),300)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>`;
+c.appendChild(t);
+setTimeout(()=>{if(t.parentElement){t.classList.add('removing');setTimeout(()=>t.remove(),300)}},4000);
+}
+document.querySelectorAll('.hs-action-btn,.make-action-btn').forEach(btn=>{
+btn.addEventListener('click',function(e){
+e.stopPropagation();
+const msgs=[
+{title:'Ask Harshdeep',message:"He's better at this thing! Let him build it for you.",icon:'💻'},
+{title:'Feature Request',message:'Harshdeep can implement this for your project.',icon:'✨'},
+{title:'Good Choice!',message:"Harshdeep specializes in exactly this. Let's talk!",icon:'🎯'},
+{title:'Pro Tip',message:'Harshdeep has built 50+ of these. Hire him!',icon:'💡'}
+];
+const m=msgs[Math.floor(Math.random()*msgs.length)];
+showToast(m.title,m.message,m.icon);
+});
+});
+function toggleZap(){
+const t=document.getElementById('zap-toggle');
+t.classList.toggle('off');
+if(t.classList.contains('off'))showToast('Zap Turned Off','The Lead Sync Zap is now paused.','⏸');
+else showToast('Zap Turned On','The Lead Sync Zap is now active!','▶');
+}
+function runGasCode(){
+const btn=document.getElementById('gas-run-btn');
+const btnText=document.getElementById('run-btn-text');
+const con=document.getElementById('gas-console');
+const out=document.getElementById('gas-output');
+const outC=document.getElementById('gas-output-content');
+btn.classList.add('running');btnText.textContent='Running...';
+con.classList.add('visible');out.classList.remove('visible');
+con.querySelectorAll('.gas-console-line').forEach(l=>l.remove());
+const steps=[
+{text:'> Initializing execution...',type:'info',d:300},
+{text:'> Loading SpreadsheetApp service...',type:'info',d:600},
+{text:'> Reading data from active sheet...',type:'info',d:1000},
+{text:'> Processing 127 invoice records...',type:'info',d:1500},
+{text:'> Sending emails via GmailApp...',type:'info',d:2200},
+{text:'✓ Generated 127 invoices successfully',type:'success',d:2800}
+];
+steps.forEach(s=>{setTimeout(()=>{const l=document.createElement('div');l.className=`gas-console-line ${s.type}`;l.textContent=s.text;con.appendChild(l);con.scrollTop=con.scrollHeight},s.d)});
+setTimeout(()=>{btn.classList.remove('running');btnText.textContent='Run';outC.textContent='Generated 127 invoices successfully • Execution time: 2.8s';out.classList.add('visible');showToast('Execution Complete','127 invoices generated and emailed successfully!','✅')},3200);
+}
+document.querySelectorAll('.gas-file-item[data-file]').forEach(item=>{
+item.addEventListener('click',function(){
+document.querySelectorAll('.gas-file-item').forEach(i=>i.classList.remove('active'));
+this.classList.add('active');
+const f=this.dataset.file;
+const fn=document.getElementById('current-filename');
+const ed=document.getElementById('code-editor');
+const files={
+code:{n:'Code.gs',c:'<span class="comment">// Invoice Automation Script</span>\n<span class="comment">// Generates and emails invoices from Google Sheets</span>\n<span class="keyword">function</span> <span class="function">generateInvoices</span>() {\n<span class="keyword">const</span> <span class="variable">sheet</span> = SpreadsheetApp\n.getActiveSheet();\n<span class="keyword">const</span> <span class="variable">data</span> = sheet.getDataRange()\n.getValues();\n<span class="keyword">let</span> <span class="variable">invoiceCount</span> = <span class="number">0</span>;\n<span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> = <span class="number">1</span>; i < data.length; i++) {\n<span class="keyword">const</span> [<span class="variable">name</span>, <span class="variable">email</span>, <span class="variable">amount</span>] = data[i];\n<span class="function">sendInvoice</span>(email, name, amount);\ninvoiceCount++;\n}\n<span class="keyword">return</span> <span class="string">`Generated ${invoiceCount} invoices`</span>;\n}'},
+html:{n:'Invoice.html',c:'<span class="comment">&lt;!-- Invoice Email Template --&gt;</span>\n<span class="keyword">&lt;div</span> <span class="variable">style</span>=<span class="string">"font-family: Arial;"</span><span class="keyword">&gt;</span>\n<span class="keyword">&lt;h1&gt;</span>Invoice #<span class="variable">{{invoiceNumber}}</span><span class="keyword">&lt;/h1&gt;</span>\n<span class="keyword">&lt;p&gt;</span>Dear <span class="variable">{{clientName}}</span>,<span class="keyword">&lt;/p&gt;</span>\n<span class="keyword">&lt;table&gt;</span>\n<span class="keyword">&lt;tr&gt;</span>\n<span class="keyword">&lt;td&gt;</span>Amount:<span class="keyword">&lt;/td&gt;</span>\n<span class="keyword">&lt;td&gt;</span><span class="variable">{{amount}}</span><span class="keyword">&lt;/td&gt;</span>\n<span class="keyword">&lt;/tr&gt;</span>\n<span class="keyword">&lt;/table&gt;</span>\n<span class="keyword">&lt;/div&gt;</span>'},
+utils:{n:'Utils.gs',c:'<span class="comment">// Utility functions</span>\n<span class="keyword">function</span> <span class="function">formatCurrency</span>(<span class="variable">amount</span>) {\n<span class="keyword">return</span> <span class="string">\'$\'</span> + amount.toFixed(2);\n}\n<span class="keyword">function</span> <span class="function">validateEmail</span>(<span class="variable">email</span>) {\n<span class="keyword">const</span> <span class="variable">regex</span> = /\\S+@\\S+\\.\\S+/;\n<span class="keyword">return</span> regex.test(email);\n}\n<span class="keyword">function</span> <span class="function">getTemplate</span>(<span class="variable">name</span>) {\n<span class="keyword">return</span> HtmlService\n.createTemplateFromFile(name);\n}'}
+};
+fn.textContent=files[f].n;ed.innerHTML=files[f].c;
+});
+});
+const menuToggle=document.getElementById('menu-toggle');
+const mobileMenu=document.getElementById('mobile-menu');
+const mobileOverlay=document.getElementById('mobile-menu-overlay');
+const menuIcon=document.getElementById('menu-icon');
+const mobileLinks=document.querySelectorAll('.mobile-link');
+let menuOpen=false;
+function toggleMenu(){
+menuOpen=!menuOpen;
+mobileMenu.classList.toggle('open',menuOpen);
+mobileOverlay.classList.toggle('open',menuOpen);
+if(menuOpen){menuIcon.innerHTML='<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';document.body.style.overflow='hidden'}
+else{menuIcon.innerHTML='<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';document.body.style.overflow=''}
+}
+menuToggle.addEventListener('click',toggleMenu);
+mobileOverlay.addEventListener('click',toggleMenu);
+mobileLinks.forEach(l=>l.addEventListener('click',()=>{if(menuOpen)toggleMenu()}));
+const observerOptions={threshold:.1,rootMargin:'0px 0px -50px 0px'};
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},observerOptions);
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+a.addEventListener('click',function(e){
+e.preventDefault();
+const t=document.querySelector(this.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+});
+});
+const contactsData=[
+{name:'Sarah Johnson',email:'sarah@techcorp.com',company:'TechCorp Inc',stage:'customer',lastActivity:'2 hours ago',color:'#ff7a59'},
+{name:'Mike Chen',email:'mike@startup.io',company:'StartupIO',stage:'lead',lastActivity:'Yesterday',color:'#6d28d9'},
+{name:'Emma Davis',email:'emma@enterprise.com',company:'Enterprise LLC',stage:'subscriber',lastActivity:'3 days ago',color:'#4285f4'},
+{name:'James Park',email:'james@global.co',company:'Global Solutions',stage:'opportunity',lastActivity:'1 week ago',color:'#10b981'},
+{name:'Anna Lopez',email:'anna@design.studio',company:'Design Studio',stage:'customer',lastActivity:'2 weeks ago',color:'#f59e0b'},
+{name:'David Kim',email:'david@megacorp.com',company:'MegaCorp',stage:'lead',lastActivity:'3 days ago',color:'#ef4444'},
+{name:'Lisa Wang',email:'lisa@innovate.tech',company:'InnovateTech',stage:'subscriber',lastActivity:'5 days ago',color:'#8b5cf6'},
+{name:'Robert Brown',email:'robert@acme.co',company:'Acme Corp',stage:'customer',lastActivity:'1 day ago',color:'#06b6d4'}
+];
+const stageLabels={customer:'Customer',lead:'Lead',subscriber:'Subscriber',opportunity:'Opportunity'};
+function renderContacts(data){
+const tbody=document.getElementById('contacts-tbody');
+const countEl=document.getElementById('table-count');
+if(!tbody)return;
+tbody.innerHTML='';
+data.forEach(c=>{
+const initials=c.name.split(' ').map(n=>n[0]).join('');
+tbody.innerHTML+=`<tr><td><div class="hs-contact-cell"><div class="hs-avatar" style="background:${c.color}">${initials}</div><div><div class="hs-contact-name">${c.name}</div><div class="hs-contact-email">${c.email}</div></div></div></td><td class="text-slate-600">${c.email}</td><td class="text-slate-600">${c.company}</td><td><span class="hs-badge hs-badge-${c.stage}">${stageLabels[c.stage]}</span></td><td class="text-slate-500 text-xs">${c.lastActivity}</td></tr>`;
+});
+if(countEl)countEl.textContent=`Showing ${data.length} of ${contactsData.length} contacts`;
+}
+renderContacts(contactsData);
+const tableSearch=document.getElementById('table-search');
+let currentFilter='all';
+if(tableSearch){
+tableSearch.addEventListener('input',function(){
+const q=this.value.toLowerCase();
+let f=contactsData.filter(c=>{
+const ms=c.name.toLowerCase().includes(q)||c.email.toLowerCase().includes(q)||c.company.toLowerCase().includes(q);
+const mf=currentFilter==='all'||c.stage===currentFilter;
+return ms&&mf;
+});
+renderContacts(f);
+});
+}
+document.querySelectorAll('.hs-filter-chip').forEach(chip=>{
+chip.addEventListener('click',function(){
+document.querySelectorAll('.hs-filter-chip').forEach(c=>c.classList.remove('active'));
+this.classList.add('active');
+currentFilter=this.dataset.filter;
+const q=tableSearch?tableSearch.value.toLowerCase():'';
+let f=contactsData.filter(c=>{
+const ms=c.name.toLowerCase().includes(q)||c.email.toLowerCase().includes(q)||c.company.toLowerCase().includes(q);
+const mf=currentFilter==='all'||c.stage===currentFilter;
+return ms&&mf;
+});
+renderContacts(f);
+});
+});
+document.querySelectorAll('.hs-subnav-item').forEach(item=>{
+item.addEventListener('click',function(){
+document.querySelectorAll('.hs-subnav-item').forEach(i=>i.classList.remove('active'));
+document.querySelectorAll('.hs-tab-content').forEach(t=>t.classList.remove('active'));
+this.classList.add('active');
+const tabId=this.getAttribute('data-tab');
+const tab=document.getElementById('tab-'+tabId);
+if(tab)tab.classList.add('active');
+});
+});
+document.querySelectorAll('.hs-sidebar-item[data-nav]').forEach(item=>{
+item.addEventListener('click',function(){
+document.querySelectorAll('.hs-sidebar-item').forEach(i=>i.classList.remove('active'));
+this.classList.add('active');
+const nav=this.dataset.nav;
+const tabMap={crm:'contacts',marketing:'contacts',sales:'deals',service:'tickets',content:'products',automation:'automation',reports:'reports'};
+const targetTab=tabMap[nav]||'contacts';
+document.querySelectorAll('.hs-subnav-item').forEach(i=>i.classList.remove('active'));
+const firstSubnav=document.querySelector(`.hs-subnav-item[data-tab="${targetTab}"]`);
+if(firstSubnav)firstSubnav.classList.add('active');
+document.querySelectorAll('.hs-tab-content').forEach(t=>t.classList.remove('active'));
+const tab=document.getElementById('tab-'+targetTab);
+if(tab)tab.classList.add('active');
+});
+});
+const globalSearch=document.getElementById('global-search');
+const searchDropdown=document.getElementById('search-dropdown');
+if(globalSearch){
+globalSearch.addEventListener('input',function(){
+const q=this.value.toLowerCase().trim();
+if(q.length<1){searchDropdown.classList.remove('visible');return}
+const results=contactsData.filter(c=>c.name.toLowerCase().includes(q)||c.email.toLowerCase().includes(q)||c.company.toLowerCase().includes(q));
+if(results.length===0){searchDropdown.innerHTML='<div class="hs-search-empty">No results found for "'+q+'"</div>'}
+else{
+searchDropdown.innerHTML='<div class="hs-search-section-title">Contacts</div>'+results.map(c=>{
+const initials=c.name.split(' ').map(n=>n[0]).join('');
+return `<div class="hs-search-result"><div class="hs-search-result-avatar" style="background:${c.color}">${initials}</div><div class="hs-search-result-info"><div class="hs-search-result-name">${c.name}</div><div class="hs-search-result-meta">${c.email} • ${c.company}</div></div><span class="hs-badge hs-badge-${c.stage}" style="font-size:10px;padding:2px 8px">${stageLabels[c.stage]}</span></div>`;
+}).join('');
+}
+searchDropdown.classList.add('visible');
+});
+globalSearch.addEventListener('focus',function(){if(this.value.trim().length>0)searchDropdown.classList.add('visible')});
+document.addEventListener('click',function(e){if(!e.target.closest('.hs-header-search'))searchDropdown.classList.remove('visible')});
+}
+function drawMakeConnections(){
+const svg=document.getElementById('make-svg');
+const canvas=document.getElementById('make-canvas');
+if(!svg||!canvas)return;
+const rect=canvas.getBoundingClientRect();
+svg.setAttribute('width',rect.width);
+svg.setAttribute('height',rect.height);
+svg.innerHTML='';
+const modules=[
+{id:'shopify',x:60,y:80,w:140,h:80},
+{id:'router',x:240,y:80,w:140,h:80},
+{id:'airtable',x:420,y:40,w:140,h:80},
+{id:'slack',x:420,y:140,w:140,h:80},
+{id:'hubspot',x:600,y:90,w:140,h:80}
+];
+const connections=[
+{from:'shopify',to:'router'},
+{from:'router',to:'airtable'},
+{from:'router',to:'slack'},
+{from:'airtable',to:'hubspot'},
+{from:'slack',to:'hubspot'}
+];
+connections.forEach(conn=>{
+const from=modules.find(m=>m.id===conn.from);
+const to=modules.find(m=>m.id===conn.to);
+const x1=from.x+from.w;
+const y1=from.y+from.h/2;
+const x2=to.x;
+const y2=to.y+to.h/2;
+const midX=(x1+x2)/2;
+const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+path.setAttribute('d',`M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`);
+path.setAttribute('class','make-flow-line');
+svg.appendChild(path);
+});
+}
+setTimeout(drawMakeConnections,500);
+window.addEventListener('resize',drawMakeConnections);
+document.querySelectorAll('.make-node').forEach(node=>{
+node.addEventListener('click',function(){
+document.querySelectorAll('.make-node').forEach(n=>n.classList.remove('active'));
+this.classList.add('active');
+const m=this.dataset.module;
+const names={shopify:'Shopify - Watch Orders',router:'Router - Filter Orders',airtable:'Airtable - Create Record',slack:'Slack - Send Message',hubspot:'HubSpot - Create Contact'};
+showToast(names[m]||m,'Module configuration panel would open here.','⚙️');
+});
+});
+// 3D Bubbles - Only 4-5 large bubbles, constrained to RIGHT side
+const bubbleCanvas=document.getElementById('bubble-canvas');
+const bCtx=bubbleCanvas.getContext('2d');
+let bubbles=[];
+let bWidth,bHeight;
+const toolColors=[
+{name:'HubSpot',color:'#ff7a59',letter:'H'},
+{name:'Make',color:'#6d28d9',letter:'M'},
+{name:'Zapier',color:'#ff4f00',letter:'Z'},
+{name:'GAS',color:'#4285f4',letter:'G'},
+{name:'CRM',color:'#10b981',letter:'C'}
+];
+function resizeBubbleCanvas(){
+bWidth=bubbleCanvas.width=bubbleCanvas.offsetWidth;
+bHeight=bubbleCanvas.height=bubbleCanvas.offsetHeight;
+}
+resizeBubbleCanvas();
+window.addEventListener('resize',resizeBubbleCanvas);
+class Bubble{
+constructor(toolIdx){
+this.tool=toolColors[toolIdx%toolColors.length];
+this.radius=70+Math.random()*40;
+const rightStart = bWidth * 0.5;
+this.x = rightStart + Math.random() * (bWidth - rightStart - this.radius*2) + this.radius;
+this.y=Math.random()*(bHeight-this.radius*2)+this.radius;
+this.vx=(Math.random()-.5)*.6;
+this.vy=(Math.random()-.5)*.6;
+this.mass=this.radius;
+this.popping=false;
+this.popProgress=0;
+this.respawnTimer=0;
+this.opacity=1;
+this.leftBoundary = bWidth * 0.45;
+}
+update(){
+if(this.popping){
+this.popProgress+=.025;
+this.opacity=1-this.popProgress;
+if(this.popProgress>=1){
+this.popping=false;
+this.popProgress=0;
+this.respawnTimer=300;
+}
+return;
+}
+if(this.respawnTimer>0){
+this.respawnTimer--;
+if(this.respawnTimer===0){
+const rightStart = bWidth * 0.5;
+this.x = rightStart + Math.random() * (bWidth - rightStart - this.radius*2) + this.radius;
+this.y=Math.random()*(bHeight-this.radius*2)+this.radius;
+this.vx=(Math.random()-.5)*.6;
+this.vy=(Math.random()-.5)*.6;
+this.opacity=0;
+this.leftBoundary = bWidth * 0.45;
+}
+return;
+}
+if(this.opacity<1)this.opacity+=.015;
+this.x+=this.vx;
+this.y+=this.vy;
+if(this.x-this.radius<this.leftBoundary){
+this.x=this.leftBoundary+this.radius;
+this.vx=Math.abs(this.vx)*0.8;
+}
+if(this.x+this.radius>bWidth){this.x=bWidth-this.radius;this.vx*=-1}
+if(this.y-this.radius<0){this.y=this.radius;this.vy*=-1}
+if(this.y+this.radius>bHeight){this.y=bHeight-this.radius;this.vy*=-1}
+if(Math.abs(this.vx)<0.1) this.vx = (Math.random()-.5)*.4;
+if(Math.abs(this.vy)<0.1) this.vy = (Math.random()-.5)*.4;
+}
+draw(){
+if(this.respawnTimer>0)return;
+bCtx.save();
+bCtx.globalAlpha=this.opacity;
+if(this.popping){
+bCtx.beginPath();
+bCtx.arc(this.x,this.y,this.radius*(1+this.popProgress*2),0,Math.PI*2);
+bCtx.strokeStyle=this.tool.color;
+bCtx.lineWidth=5*(1-this.popProgress);
+bCtx.stroke();
+for(let i=0;i<6;i++){
+const angle = (i/6)*Math.PI*2;
+const dist = this.radius*(1+this.popProgress*3);
+bCtx.beginPath();
+bCtx.arc(this.x+Math.cos(angle)*dist, this.y+Math.sin(angle)*dist, 4*(1-this.popProgress), 0, Math.PI*2);
+bCtx.fillStyle=this.tool.color;
+bCtx.fill();
+}
+}else{
+const glow=bCtx.createRadialGradient(this.x,this.y,this.radius*0.5,this.x,this.y,this.radius*1.3);
+glow.addColorStop(0,this.tool.color+'30');
+glow.addColorStop(1,this.tool.color+'00');
+bCtx.beginPath();
+bCtx.arc(this.x,this.y,this.radius*1.3,0,Math.PI*2);
+bCtx.fillStyle=glow;
+bCtx.fill();
+const grad=bCtx.createRadialGradient(this.x-this.radius*.3,this.y-this.radius*.3,this.radius*.1,this.x,this.y,this.radius);
+grad.addColorStop(0,this.tool.color+'dd');
+grad.addColorStop(1,this.tool.color+'50');
+bCtx.beginPath();
+bCtx.arc(this.x,this.y,this.radius,0,Math.PI*2);
+bCtx.fillStyle=grad;
+bCtx.fill();
+bCtx.strokeStyle=this.tool.color;
+bCtx.lineWidth=3;
+bCtx.stroke();
+bCtx.beginPath();
+bCtx.arc(this.x-this.radius*0.3,this.y-this.radius*0.3,this.radius*0.2,0,Math.PI*2);
+bCtx.fillStyle='rgba(255,255,255,0.3)';
+bCtx.fill();
+bCtx.fillStyle='#fff';
+bCtx.font=`bold ${this.radius*.55}px Lexend Deca`;
+bCtx.textAlign='center';
+bCtx.textBaseline='middle';
+bCtx.fillText(this.tool.letter,this.x,this.y-this.radius*0.1);
+bCtx.font=`${this.radius*.22}px Inter`;
+bCtx.fillText(this.tool.name,this.x,this.y+this.radius*0.3);
+}
+bCtx.restore();
+}
+checkPop(mx,my){
+if(this.popping||this.respawnTimer>0)return false;
+const dx=mx-this.x;
+const dy=my-this.y;
+const dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<this.radius*1.3){
+this.popping=true;
+return true;
+}
+return false;
+}
+}
+for(let i=0;i<5;i++){
+bubbles.push(new Bubble(i));
+}
+let bMouseX=0,bMouseY=0;
+let bDragging=false;
+let bDragBubble=null;
+bubbleCanvas.addEventListener('mousemove',e=>{
+const rect=bubbleCanvas.getBoundingClientRect();
+bMouseX=e.clientX-rect.left;
+bMouseY=e.clientY-rect.top;
+if(bDragging&&bDragBubble){
+bDragBubble.x=bMouseX;
+bDragBubble.y=bMouseY;
+bDragBubble.vx=(Math.random()-.5)*.5;
+bDragBubble.vy=(Math.random()-.5)*.5;
+if(Math.abs(bDragBubble.vx)+Math.abs(bDragBubble.vy)>.3){
+bDragBubble.checkPop(bMouseX,bMouseY);
+}
+}
+});
+bubbleCanvas.addEventListener('mousedown',e=>{
+const rect=bubbleCanvas.getBoundingClientRect();
+const mx=e.clientX-rect.left;
+const my=e.clientY-rect.top;
+for(let i=bubbles.length-1;i>=0;i--){
+if(bubbles[i].checkPop(mx,my)){
+showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'💥');
+return;
+}
+}
+for(let i=bubbles.length-1;i>=0;i--){
+const b=bubbles[i];
+if(b.respawnTimer>0||b.popping)continue;
+const dx=mx-b.x;const dy=my-b.y;
+if(Math.sqrt(dx*dx+dy*dy)<b.radius){
+bDragging=true;
+bDragBubble=b;
+return;
+}
+}
+});
+bubbleCanvas.addEventListener('mouseup',()=>{bDragging=false;bDragBubble=null});
+bubbleCanvas.addEventListener('mouseleave',()=>{bDragging=false;bDragBubble=null});
+bubbleCanvas.addEventListener('touchstart',e=>{
+e.preventDefault();
+const rect=bubbleCanvas.getBoundingClientRect();
+const t=e.touches[0];
+const mx=t.clientX-rect.left;
+const my=t.clientY-rect.top;
+for(let i=bubbles.length-1;i>=0;i--){
+if(bubbles[i].checkPop(mx,my)){
+showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'💥');
+return;
+}
+}
+},{passive:false});
+function animateBubbles(){
+bCtx.clearRect(0,0,bWidth,bHeight);
+bubbles.forEach(b=>{b.update();b.draw()});
+requestAnimationFrame(animateBubbles);
+}
+animateBubbles();
+
+// ============================================
+// CONTACT FORM HANDLER WITH EMAILJS
+// ============================================
+function handleContactSubmit(event){
+event.preventDefault();
+const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('contact-submit-btn');
+const btnText = document.getElementById('contact-btn-text');
+const btnLoader = document.getElementById('contact-btn-loader');
+const formWrapper = document.getElementById('contact-form-wrapper');
+const thankYou = document.getElementById('contact-thankyou');
+
+// Show loader, disable button
+btnText.classList.add('hidden');
+btnLoader.classList.remove('hidden');
+submitBtn.disabled = true;
+submitBtn.style.opacity = '0.7';
+submitBtn.style.cursor = 'not-allowed';
+submitBtn.classList.remove('hover:-translate-y-1');
+
+// Collect form data
+const formData = new FormData(form);
+const templateParams = {
+user_name: formData.get('user_name'),
+user_email: formData.get('user_email'),
+project_type: formData.get('project_type'),
+message: formData.get('message'),
+to_email: 'harshdeepsingh2809@gmail.com'
+};
+
+// Send via EmailJS
+emailjs.send('service_3puhnx5', 'template_9qx812p', templateParams)
+.then(function(response) {
+console.log('Email sent successfully!', response.status, response.text);
+showThankYou();
+}, function(error) {
+console.error('EmailJS Error:', error);
+// Still show thank you for UX continuity, but log error
+showThankYou();
+});
+
+function showThankYou(){
+// Hide form, show thank you message in same area
+formWrapper.classList.add('hidden');
+thankYou.classList.remove('hidden');
+// Reset button state (for reload)
+btnText.classList.remove('hidden');
+btnLoader.classList.add('hidden');
+submitBtn.disabled = false;
+submitBtn.style.opacity = '1';
+submitBtn.style.cursor = 'pointer';
+submitBtn.classList.add('hover:-translate-y-1');
+}
+}
+
+const caseStudies={
+homee:{
+accent:'#ff7a59',accentDark:'#e8634a',accentGlow:'rgba(255,122,89,.3)',
+title:'Automated Personalized Monthly Scorecard',
+tech:['HubSpot','HubL','REST API','Looker','Node.js'],
+solution:['Built middleware pipeline to query external API by HubSpot Company ID','Implemented custom logic to parse and format raw API response into structured JSON','Automated routing of processed data from company level to associated contact records','Engineered custom HubL email module using HTML, CSS, and HubL to dynamically render branded scorecard tables','Configured HubSpot workflow to trigger personalized monthly email dispatch on property update'],
+challenge:['Manual reporting bottlenecks compiling metrics for thousands of service professionals','External data silos between proprietary API and HubSpot','HubSpot cannot natively fetch live API data at send time','Complex routing from company-level data to contact records','Brand and design constraints for presenting raw data'],
+impact:['Hundreds of hours saved by ending manual report compilation','Stronger partner engagement via transparent personalized data','Seamless cross-platform data flow bridging backend and HubSpot','Flawless fully responsive branded email experience','Scalable architecture ready for new KPIs and partner tiers'],
+metrics:[{icon:'⏱',value:'100s',label:'Hours saved monthly'},{icon:'👥',value:'1,000s',label:'Service pros reached'},{icon:'✅',value:'100%',label:'Automated dispatch'},{icon:'🔴',value:'Live',label:'API-to-email sync'}]
+},
+hochheiden:{
+accent:'#8b5cf6',accentDark:'#6d28d9',accentGlow:'rgba(139,92,246,.3)',
+title:'HubSpot Custom Objects & Association MCP',
+tech:['HubSpot','Claude AI','MCP','Render','Git','UptimeRobot'],
+solution:['Developed bespoke MCP server in private Git repo, deployed via Render','Engineered smart memory cache with persistent knowledge.json for instant schema recall','Integrated UptimeRobot to eliminate cold starts and prevent disk wipes','Exposed 30+ advanced tools for pagination, filtered search, and association navigation'],
+challenge:['AI lacked direct visibility into custom CRM data structures','Official HubSpot AI connector supports only built-in objects','Free cloud tiers brought cold-start latency and data wipes'],
+impact:['AI gains full secure access to custom schemas (Objekt, Projects)','Massive performance boost with near-zero tool overhead','Enterprise-grade AI integration on free cloud tiers','Reusable future-ready PropTech template that scales with portfolio'],
+metrics:[{icon:'🧰',value:'30+',label:'Custom AI tools'},{icon:'⚡',value:'Zero',label:'Cold-start latency'},{icon:'💰',value:'$0',label:'Cloud hosting cost'},{icon:'🔴',value:'Real-time',label:'Custom CRM queries'}]
+},
+scorebuddy:{
+accent:'#10b981',accentDark:'#059669',accentGlow:'rgba(16,185,129,.3)',
+title:'Interactive ROI Calculator with Gated Results & PDF Reports',
+tech:['HubSpot CMS','JavaScript','PDF CreateMate','HubL','Workflows'],
+solution:['Implemented client ROI logic in custom HubSpot module calculating natively on-page','Designed teaser-gated UX showing first three metrics with blurred remaining results','Configured HubSpot pop-up form to capture lead and push inputs to contact properties','Integrated PDF CreateMate to auto-generate branded ROI report on form submit','Built HubSpot workflow to email PDF in brand-matched template'],
+challenge:['Passive calculators do not convert without gating','Standard HubSpot modules cannot run live calculator or gate results','Manual personalized ROI reports do not scale','Fragmented off-brand experience across calculator form PDF and email'],
+impact:['Passive calculator turned into high-intent lead-capture engine','Instant hands-off personalization with zero manual report work','Consistent brand experience end to end','Richer CRM data with each lead inputs and ROI stored for sales','Reusable calculator-to-PDF framework for future campaigns'],
+metrics:[{icon:'👁',value:'3',label:'Free preview metrics'},{icon:'🖱',value:'1-Click',label:'Full report unlock'},{icon:'⚡',value:'Instant',label:'PDF delivery'},{icon:'✅',value:'100%',label:'Automated reports'}]
+}
+};
+function openDetail(key){
+const cs=caseStudies[key];
+if(!cs)return;
+const panel=document.getElementById('detail-panel');
+const overlay=document.getElementById('detail-overlay');
+const content=document.getElementById('detail-content');
+const checkList=(items)=>items.map(i=>`<div class="check-item"><div class="check-icon" style="color:${cs.accent}">✓</div><div class="text-sm text-white/80 leading-relaxed">${i}</div></div>`).join('');
+const metricsHTML=cs.metrics.map(m=>`<div class="metric-3d" style="--accent:${cs.accent};--accent-glow:${cs.accentGlow}"><div class="text-2xl mb-2">${m.icon}</div><div class="text-2xl sm:text-3xl font-bold text-white font-display">${m.value}</div><div class="text-xs sm:text-sm text-white/60 mt-1">${m.label}</div></div>`).join('');
+const techHTML=cs.tech.map(t=>`<div class="tech-cube" style="--accent:${cs.accent}"><div class="text-center"><div class="text-lg font-bold text-white mb-1">${t.charAt(0)}</div><div class="text-xs sm:text-sm font-semibold text-white/90">${t}</div></div></div>`).join('');
+content.innerHTML=`
+<div class="sticky top-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex items-center justify-between border-b border-white/10" style="background:linear-gradient(180deg,rgba(15,23,42,.95) 0%,rgba(15,23,42,.8) 100%);backdrop-filter:blur(20px)">
+<div class="flex items-center gap-3 sm:gap-4">
+<div class="bg-slate-900/80 border border-white/10 rounded-xl px-4 py-2.5">
+<div class="text-white font-display font-bold text-lg sm:text-xl">${cs.title.split(' ').slice(0,2).join(' ')}</div>
+</div>
+</div>
+<button onclick="closeDetail()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition flex-shrink-0 border border-white/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+</div>
+<div class="px-4 sm:px-8 py-6 sm:py-10 max-w-7xl mx-auto">
+<div class="text-center mb-8 sm:mb-12">
+<h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">${cs.title}</h2>
+<div class="flex flex-wrap justify-center gap-2 mb-6">${cs.tech.map(t=>`<span class="px-3 py-1 rounded-full text-xs font-semibold" style="background:${cs.accent}20;color:${cs.accent};border:1px solid ${cs.accent}40">${t}</span>`).join('')}</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">${metricsHTML}</div>
+<div class="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+<div class="detail-glass p-5 sm:p-8">
+<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(59,130,246,.2);color:#60a5fa">⚠</div>Challenge</div>
+${checkList(cs.challenge)}
+</div>
+<div class="detail-glass p-5 sm:p-8">
+<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(245,158,11,.2);color:#fbbf24">⚡</div>Solution</div>
+${checkList(cs.solution)}
+</div>
+</div>
+<div class="detail-glass p-5 sm:p-8 mb-8 sm:mb-12">
+<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(16,185,129,.2);color:#34d399">📈</div>Business Impact</div>
+${checkList(cs.impact)}
+</div>
+<div class="detail-glass p-5 sm:p-8 mb-8 sm:mb-12">
+<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(255,255,255,.1);color:#e2e8f0">&lt;/&gt;</div>Tech Stack</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">${techHTML}</div>
+</div>
+<div class="text-center">
+<button onclick="closeDetail();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),300)" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-orange-500/30 transition-all hover:-translate-y-1 text-sm sm:text-base">Want similar results? Let's talk →</button>
+</div>
+</div>
+`;
+overlay.classList.add('open');
+panel.classList.add('open');
+document.body.classList.add('detail-open');
+panel.scrollTop=0;
+}
+function closeDetail(){
+document.getElementById('detail-overlay').classList.remove('open');
+document.getElementById('detail-panel').classList.remove('open');
+document.body.classList.remove('detail-open');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+</script>
+</body>
+</html>
+
