@@ -1887,6 +1887,8 @@ let isDeleting = false;
 let currentText = "";
 let dotStep = 0;
 
+const fallbackTitle = "Harshdeep Singh";
+
 function getDots() {
   const dots = ["", ".", "..", "..."];
   dotStep = (dotStep + 1) % dots.length;
@@ -1913,11 +1915,13 @@ function animateTabTitle() {
     currentText = fullText.substring(0, charIndex - 1);
     charIndex--;
 
-    document.title = currentText;
+    // Prevent empty title so browser never shows URL
+    document.title = currentText.trim() || fallbackTitle;
 
-    if (charIndex === 0) {
+    if (charIndex <= 1) {
       isDeleting = false;
       titleIndex = (titleIndex + 1) % tabTitles.length;
+      charIndex = 0;
 
       setTimeout(animateTabTitle, 500);
       return;
@@ -1928,6 +1932,7 @@ function animateTabTitle() {
   setTimeout(animateTabTitle, typingSpeed);
 }
 
+document.title = fallbackTitle;
 animateTabTitle();
 
 </script>
