@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harshdeep Singh - Solution Engineer CRM Portfolio</title>
+<!-- Bigger HS favicon matching navbar logo -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fb923c'/%3E%3Cstop offset='100%25' stop-color='%239333ea'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='96' height='96' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-family='Arial, Helvetica, sans-serif' font-size='42' font-weight='900' fill='white' text-anchor='middle'%3EHS%3C/text%3E%3C/svg%3E">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.14/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/lexend-deca@4.5.10/index.css">
@@ -29,10 +32,11 @@ html{scroll-behavior:smooth}
 @keyframes hex-rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes bolt-flash{0%,100%{opacity:1;filter:drop-shadow(0 0 10px #ff4f00)}50%{opacity:.7;filter:drop-shadow(0 0 25px #ff4f00)}}
 @keyframes dash-flow{to{stroke-dashoffset:-200}}
-@keyframes pulse-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
 @keyframes toast-in{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
 @keyframes toast-out{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
 @keyframes card-shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(200%) rotate(45deg)}}
+@keyframes logo-pulse{0%,100%{filter:drop-shadow(0 0 8px rgba(255,122,89,.4))}50%{filter:drop-shadow(0 0 24px rgba(255,122,89,.9))}}
+@keyframes logo-pulse-purple{0%,100%{filter:drop-shadow(0 0 8px rgba(109,40,217,.4))}50%{filter:drop-shadow(0 0 24px rgba(109,40,217,.9))}}
 .animate-float{animation:float 6s ease-in-out infinite}
 .animate-gradient{background-size:200% 200%;animation:gradient-shift 8s ease infinite}
 .animate-slide-up{animation:slide-up .8s ease forwards}
@@ -40,7 +44,6 @@ html{scroll-behavior:smooth}
 .animate-gear-spin{animation:gear-spin 8s linear infinite;transform-origin:center}
 .animate-hex-rotate{animation:hex-rotate 15s linear infinite}
 .animate-bolt-flash{animation:bolt-flash 2s ease-in-out infinite}
-.flow-path{stroke-dasharray:10 5;animation:dash-flow 3s linear infinite}
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1)}
@@ -67,9 +70,82 @@ html{scroll-behavior:smooth}
 .mobile-menu-overlay.open{opacity:1;pointer-events:auto}
 .canvas-container{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5}
 .photo-showcase{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);width:100%;height:100%;min-height:500px;max-height:700px;background:linear-gradient(135deg,#ff7a59,#6d28d9)}
-.photo-showcase img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+.photo-showcase img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .photo-showcase::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,122,89,.15),rgba(139,92,246,.15));mix-blend-mode:overlay;z-index:1;pointer-events:none}
 .photo-showcase::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.15);border-radius:20px;z-index:2;pointer-events:none}
+
+/* HubSpot Real Logo - Interactive */
+.hs-logo-wrapper{position:relative;width:160px;height:160px;cursor:pointer;perspective:900px;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.16,1,.3,1),filter .3s}
+.hs-logo-wrapper::before{content:'';position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,89,.18),transparent 68%);filter:blur(12px);opacity:0;transition:opacity .35s,transform .45s;transform:translateZ(-24px) scale(.85);pointer-events:none}
+.hs-logo-wrapper:hover{transform:translateY(-8px) rotateX(12deg) rotateY(-14deg) scale(1.08);filter:drop-shadow(0 18px 26px rgba(255,122,89,.28))}
+.hs-logo-wrapper:hover::before{opacity:1;transform:translateZ(-24px) scale(1)}
+.hs-logo-wrapper:hover .hs-logo-svg{animation:hs-logo-float 2.2s ease-in-out infinite}
+.hs-logo-wrapper:hover .hs-sprocket{animation:gear-spin 5s linear infinite}
+.hs-logo-wrapper:hover .hs-logo-fill{animation:logo-pulse 1.5s ease infinite}
+.hs-logo-svg{width:100%;height:100%;transition:filter .3s;overflow:visible;transform-style:preserve-3d}
+.hs-sprocket{transform-origin:100px 100px;transform-box:view-box}
+.hs-logo-line{fill:none;stroke:#ff7a59;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.hs-logo-fill{fill:#ff7a59}
+@keyframes hs-logo-float{0%,100%{transform:translateY(0) translateZ(0)}50%{transform:translateY(-9px) translateZ(22px)}}
+
+/* Make.com Real Logo - Interactive */
+.make-logo-wrapper{position:relative;width:160px;height:160px;cursor:pointer;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.make-logo-wrapper:hover{transform:scale(1.1) rotate(10deg)}
+.make-logo-wrapper:hover .make-logo-svg{animation:logo-pulse-purple 1.5s ease infinite}
+.make-logo-wrapper:hover .make-hex-outer{animation:hex-rotate 6s linear infinite}
+.make-logo-svg{width:100%;height:100%;transition:filter .3s}
+.make-hex-outer{transform-origin:100px 100px}
+
+/* Zapier Logo */
+.zap-logo-wrapper{position:relative;width:160px;height:160px}
+.zap-logo-wrapper:hover .zap-bolt{animation:bolt-flash 1s ease infinite}
+
+/* GAS Logo */
+.gas-logo-wrapper{position:relative;width:160px;height:160px}
+
+/* Zap UI - Fixed Width */
+.zap-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif;max-width:100%;width:100%}
+.zap-sidebar{width:220px;background:#fafafa;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;flex-shrink:0}
+.zap-sidebar-header{padding:16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px}
+.zap-logo{width:32px;height:32px;background:#ff4f00;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+.zap-sidebar-title{font-size:14px;font-weight:600;color:#111827}
+.zap-nav{padding:12px;flex:1}
+.zap-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s;font-size:13px;color:#4b5563;margin-bottom:2px}
+.zap-nav-item:hover{background:#f3f4f6;color:#111827}
+.zap-nav-item.active{background:#fff4ed;color:#ff4f00;font-weight:600}
+.zap-nav-item svg{width:16px;height:16px}
+.zap-main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.zap-topbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;flex-wrap:wrap;gap:12px}
+.zap-zap-info{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.zap-zap-name{font-size:16px;font-weight:600;color:#111827}
+.zap-toggle{position:relative;width:44px;height:24px;background:#10b981;border-radius:12px;cursor:pointer;transition:background .2s}
+.zap-toggle::after{content:'';position:absolute;top:2px;right:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.zap-toggle.off{background:#d1d5db}
+.zap-toggle.off::after{transform:translateX(-20px);right:auto;left:2px}
+.zap-topbar-actions{display:flex;gap:8px}
+.zap-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.zap-btn-primary{background:#ff4f00;color:#fff}
+.zap-btn-primary:hover{background:#e04600}
+.zap-btn-secondary{background:#fff;color:#374151;border:1px solid #d1d5db}
+.zap-btn-secondary:hover{background:#f9fafb}
+.zap-editor{flex:1;overflow-y:auto;padding:24px;background:#f9fafb}
+.zap-step{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:16px;display:flex;gap:16px;transition:all .2s;cursor:pointer}
+.zap-step:hover{border-color:#ff4f00;box-shadow:0 4px 12px rgba(255,79,0,.1)}
+.zap-step.trigger .zap-step-number{background:#dbeafe;color:#2563eb}
+.zap-step-number{width:32px;height:32px;border-radius:50%;background:#fff4ed;color:#ff4f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.zap-step-content{flex:1;min-width:0}
+.zap-step-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.zap-step-label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.zap-step-status{font-size:11px;color:#10b981;font-weight:600;display:flex;align-items:center;gap:4px}
+.zap-step-app{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.zap-app-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.zap-app-name{font-size:15px;font-weight:600;color:#111827}
+.zap-action-name{font-size:13px;color:#6b7280}
+.zap-step-connector{width:2px;height:24px;background:#e5e7eb;margin:0 auto}
+.zap-add-step{background:#fff;border:2px dashed #d1d5db;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;color:#6b7280;font-size:14px;font-weight:500}
+.zap-add-step:hover{border-color:#ff4f00;color:#ff4f00;background:#fff4ed}
+
+/* HubSpot UI */
 .hs-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
 .hs-sidebar{width:64px;background:#fff;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:center;padding:16px 0;flex-shrink:0}
 .hs-sidebar-logo{width:36px;height:36px;background:#ff7a59;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;margin-bottom:24px}
@@ -196,10 +272,12 @@ html{scroll-behavior:smooth}
 .wf-item-status.draft{background:#f3f4f6;color:#4b5563}
 .wf-item-status.draft .wf-item-dot{background:#6b7280}
 .wf-item-dot{width:6px;height:6px;border-radius:50%}
+
+/* Make UI */
 .make-ui{background:#1a1a2e;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);display:flex;height:600px;color:#fff;font-family:'Inter',sans-serif}
 .make-sidebar{width:220px;background:#16162a;border-right:1px solid #2a2a4a;display:flex;flex-direction:column;flex-shrink:0}
 .make-sidebar-header{padding:16px;border-bottom:1px solid #2a2a4a;display:flex;align-items:center;gap:10px}
-.make-logo{width:32px;height:32px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.make-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
 .make-sidebar-title{font-size:14px;font-weight:600}
 .make-sidebar-subtitle{font-size:11px;color:#8b8ba7}
 .make-module-list{flex:1;overflow-y:auto;padding:12px}
@@ -235,50 +313,12 @@ html{scroll-behavior:smooth}
 .make-node-label{font-size:11px;font-weight:600;text-align:center}
 .make-node-sublabel{font-size:10px;color:#8b8ba7;text-align:center}
 .make-node-number{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#6d28d9;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
-.zap-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
-.zap-sidebar{width:220px;background:#fafafa;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;flex-shrink:0}
-.zap-sidebar-header{padding:16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px}
-.zap-logo{width:32px;height:32px;background:#ff4f00;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
-.zap-sidebar-title{font-size:14px;font-weight:600;color:#111827}
-.zap-nav{padding:12px;flex:1}
-.zap-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s;font-size:13px;color:#4b5563;margin-bottom:2px}
-.zap-nav-item:hover{background:#f3f4f6;color:#111827}
-.zap-nav-item.active{background:#fff4ed;color:#ff4f00;font-weight:600}
-.zap-nav-item svg{width:16px;height:16px}
-.zap-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.zap-topbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.zap-zap-info{display:flex;align-items:center;gap:12px}
-.zap-zap-name{font-size:16px;font-weight:600;color:#111827}
-.zap-toggle{position:relative;width:44px;height:24px;background:#10b981;border-radius:12px;cursor:pointer;transition:background .2s}
-.zap-toggle::after{content:'';position:absolute;top:2px;right:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-.zap-toggle.off{background:#d1d5db}
-.zap-toggle.off::after{transform:translateX(-20px);right:auto;left:2px}
-.zap-topbar-actions{display:flex;gap:8px}
-.zap-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
-.zap-btn-primary{background:#ff4f00;color:#fff}
-.zap-btn-primary:hover{background:#e04600}
-.zap-btn-secondary{background:#fff;color:#374151;border:1px solid #d1d5db}
-.zap-btn-secondary:hover{background:#f9fafb}
-.zap-editor{flex:1;overflow-y:auto;padding:24px;background:#f9fafb}
-.zap-step{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:16px;display:flex;gap:16px;transition:all .2s;cursor:pointer}
-.zap-step:hover{border-color:#ff4f00;box-shadow:0 4px 12px rgba(255,79,0,.1)}
-.zap-step.trigger .zap-step-number{background:#dbeafe;color:#2563eb}
-.zap-step-number{width:32px;height:32px;border-radius:50%;background:#fff4ed;color:#ff4f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
-.zap-step-content{flex:1}
-.zap-step-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.zap-step-label{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
-.zap-step-status{font-size:11px;color:#10b981;font-weight:600;display:flex;align-items:center;gap:4px}
-.zap-step-app{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.zap-app-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.zap-app-name{font-size:15px;font-weight:600;color:#111827}
-.zap-action-name{font-size:13px;color:#6b7280}
-.zap-step-connector{width:2px;height:24px;background:#e5e7eb;margin:0 auto}
-.zap-add-step{background:#fff;border:2px dashed #d1d5db;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;color:#6b7280;font-size:14px;font-weight:500}
-.zap-add-step:hover{border-color:#ff4f00;color:#ff4f00;background:#fff4ed}
+
+/* GAS UI */
 .gas-ui{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:flex;height:600px;font-family:'Inter',sans-serif}
 .gas-sidebar{width:220px;background:#f8f9fa;border-right:1px solid #e8eaed;display:flex;flex-direction:column;flex-shrink:0}
 .gas-sidebar-header{padding:16px;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:10px}
-.gas-logo{width:32px;height:32px;background:linear-gradient(135deg,#4285f4,#34a853);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.gas-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#4285f4,#34a853);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
 .gas-sidebar-title{font-size:14px;font-weight:600;color:#202124}
 .gas-sidebar-subtitle{font-size:11px;color:#5f6368}
 .gas-file-list{flex:1;overflow-y:auto;padding:8px}
@@ -313,6 +353,7 @@ html{scroll-behavior:smooth}
 .gas-console-line.info{color:#9cdcfe}
 .gas-output{background:#fff;border-top:1px solid #e8eaed;padding:16px 20px;display:none}
 .gas-output.visible{display:block}
+
 .cs-card{position:relative;background:rgba(255,255,255,.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.16,1,.3,1)}
 .cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);opacity:0;transition:opacity .3s}
 .cs-card:hover::before{opacity:1}
@@ -364,31 +405,36 @@ html{scroll-behavior:smooth}
 .check-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .check-item:last-child{border-bottom:none}
 .check-icon{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:12px}
+.contact-spinner{display:inline-block;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.contact-thankyou{animation:fade-in .5s ease forwards}
+
+/* Mobile responsive */
 @media (max-width:768px){
 .hs-ui,.make-ui,.zap-ui,.gas-ui{height:auto;flex-direction:column;min-height:auto}
-.hs-sidebar,.make-sidebar,.zap-sidebar,.gas-sidebar{width:100%;border-right:none;border-bottom:1px solid #e5e7eb;flex-direction:row}
-.hs-sidebar{padding:8px;align-items:center}
+.hs-sidebar,.make-sidebar,.zap-sidebar,.gas-sidebar{width:100%;border-right:none;border-bottom:1px solid #e5e7eb;flex-direction:column;align-items:stretch}
+.hs-sidebar{flex-direction:row;align-items:center;padding:8px 12px}
 .hs-sidebar-logo{margin-bottom:0;margin-right:12px}
 .hs-sidebar-nav{flex-direction:row;gap:4px;overflow-x:auto;padding:0;width:auto}
 .hs-sidebar-item{width:40px;height:40px;flex-shrink:0}
 .hs-sidebar-item.active::before{display:none}
 .hs-sidebar-item svg{width:18px;height:18px}
 .make-sidebar{border-bottom:1px solid #2a2a4a}
-.make-sidebar-header{padding:12px;flex-shrink:0}
-.make-module-list{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:8px;gap:8px}
+.make-sidebar-header{padding:12px;border-bottom:1px solid #2a2a4a}
+.make-module-list{flex-direction:column;overflow-x:hidden;overflow-y:auto;padding:8px;gap:4px}
 .make-module-category{display:none}
-.make-module-item{flex-shrink:0;margin-bottom:0;min-width:120px}
+.make-module-item{flex-shrink:0;min-width:100%;white-space:nowrap}
 .make-module-icon{width:24px;height:24px;font-size:12px}
 .make-module-name{font-size:11px}
 .make-module-count{font-size:10px}
 .zap-sidebar{border-bottom:1px solid #e5e7eb}
-.zap-sidebar-header{padding:12px}
-.zap-nav{flex-direction:row;overflow-x:auto;padding:8px;gap:4px}
-.zap-nav-item{flex-shrink:0;white-space:nowrap;margin-bottom:0}
+.zap-sidebar-header{padding:12px;border-bottom:1px solid #e5e7eb}
+.zap-nav{flex-direction:column;overflow-x:hidden;overflow-y:auto;padding:8px;gap:4px}
+.zap-nav-item{flex-shrink:0;white-space:nowrap}
 .gas-sidebar{border-bottom:1px solid #e8eaed}
-.gas-sidebar-header{padding:12px}
-.gas-file-list{flex-direction:row;overflow-x:auto;padding:8px;gap:4px}
-.gas-file-item{flex-shrink:0;white-space:nowrap;margin-bottom:0}
+.gas-sidebar-header{padding:12px;border-bottom:1px solid #e8eaed}
+.gas-file-list{flex-direction:column;overflow-x:hidden;overflow-y:auto;padding:8px;gap:4px}
+.gas-file-item{flex-shrink:0;white-space:nowrap}
 .hs-header{padding:8px 12px;gap:8px}
 .hs-header-search{max-width:100%}
 .hs-header-search input{padding:8px 12px 8px 32px;font-size:13px}
@@ -471,6 +517,7 @@ html{scroll-behavior:smooth}
 .gas-editor-area{min-height:300px}
 .gas-line-numbers{font-size:12px;padding:12px 8px}
 .gas-code{font-size:12px;padding:12px}
+.hs-logo-wrapper,.make-logo-wrapper,.zap-logo-wrapper,.gas-logo-wrapper{width:120px;height:120px}
 }
 </style>
 </head>
@@ -581,7 +628,7 @@ html{scroll-behavior:smooth}
 </div>
 <div class="reveal flex items-center justify-center">
 <div class="photo-showcase w-full h-full max-h-[700px]">
-<img src="dp.png" alt="Harshdeep Singh - Solution Engineer CRM" style="width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast;">
+<img src="dp.png" alt="Harshdeep Singh - Solution Engineer CRM" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 </div>
 </div>
@@ -594,12 +641,21 @@ html{scroll-behavior:smooth}
 <span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#ff7a59]/10 border border-[#ff7a59]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#ff7a59]"></div><span class="text-[#e8634a] font-semibold text-xs sm:text-sm">PRIMARY PLATFORM</span></span>
 <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">HubSpot<span class="block text-2xl sm:text-3xl md:text-4xl text-[#ff7a59] mt-2">Development & CRM</span></h2>
 </div>
+<!-- HubSpot Real Logo - Interactive with hover effect -->
 <div class="reveal flex justify-center mb-10 sm:mb-16">
-<div style="position:relative;width:160px;height:160px">
-<svg class="animate-gear-spin" style="transform-origin:center" width="160" height="160" viewBox="0 0 200 200">
-<g fill="#ff7a59"><rect x="90" y="5" width="20" height="30" rx="4"/><rect x="90" y="165" width="20" height="30" rx="4"/><rect x="5" y="90" width="30" height="20" rx="4"/><rect x="165" y="90" width="30" height="20" rx="4"/><rect x="30" y="20" width="20" height="30" rx="4" transform="rotate(45 40 35)"/><rect x="150" y="150" width="20" height="30" rx="4" transform="rotate(45 160 165)"/><rect x="30" y="150" width="20" height="30" rx="4" transform="rotate(-45 40 165)"/><rect x="150" y="20" width="20" height="30" rx="4" transform="rotate(-45 160 35)"/></g>
-<circle cx="100" cy="100" r="70" fill="#ff7a59"/><circle cx="100" cy="100" r="50" fill="#fff5f2"/>
-<text x="100" y="115" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="50" fill="#ff7a59">H</text>
+<div class="hs-logo-wrapper" id="hubspot-logo-wrapper" title="HubSpot CRM - Click to interact">
+<svg class="hs-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hubspot-logo-title">
+<title id="hubspot-logo-title">HubSpot logo</title>
+<g class="hs-sprocket">
+<path class="hs-logo-line" d="M118 76V52"/>
+<path class="hs-logo-line" d="M89 104L57 80"/>
+<path class="hs-logo-line" d="M94 134L72 156"/>
+<circle class="hs-logo-fill" cx="118" cy="38" r="15"/>
+<circle class="hs-logo-fill" cx="44" cy="70" r="15"/>
+<circle class="hs-logo-fill" cx="61" cy="167" r="15"/>
+<circle class="hs-logo-fill" cx="121" cy="112" r="42"/>
+<circle cx="121" cy="112" r="21" fill="#fff5f2"/>
+</g>
 </svg>
 </div>
 </div>
@@ -675,7 +731,7 @@ html{scroll-behavior:smooth}
 <div class="hs-stats-grid">
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total companies</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">🏢</div></div><div class="hs-stat-value">342</div><div class="hs-stat-change positive">↑ 18 this month</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Active accounts</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">✅</div></div><div class="hs-stat-value">287</div><div class="hs-stat-change positive">↑ 84% active</div></div>
-<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Enterprise</div><div class="hs-stat-icon" style="background:#ede9fe;color:#7c3aed">👑</div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 6 new</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Enterprise</div><div class="hs-stat-icon" style="background:#ede9fe;color:#7c3aed"></div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 6 new</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Revenue tracked</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">💰</div></div><div class="hs-stat-value">$4.2M</div><div class="hs-stat-change positive">↑ 23% QoQ</div></div>
 </div>
 <div class="hs-table-container"><div style="overflow-x:auto"><table class="hs-table"><thead><tr><th>Company</th><th>Industry</th><th>Contacts</th><th>Revenue</th><th>Owner</th></tr></thead><tbody>
@@ -687,7 +743,7 @@ html{scroll-behavior:smooth}
 <div class="hs-tab-content" id="tab-deals">
 <div class="hs-page-header"><div><div class="hs-page-title">Deals</div><div class="hs-page-subtitle">$847,500 total pipeline value • 47 open deals</div></div><button class="hs-btn-primary hs-action-btn">+ Create deal</button></div>
 <div class="hs-stats-grid">
-<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Open deals</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">📊</div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 8 new this week</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Open deals</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59"></div></div><div class="hs-stat-value">47</div><div class="hs-stat-change positive">↑ 8 new this week</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Pipeline value</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">💵</div></div><div class="hs-stat-value">$847K</div><div class="hs-stat-change positive">↑ 23% vs last month</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Won this month</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">🏆</div></div><div class="hs-stat-value">12</div><div class="hs-stat-change positive">$284K revenue</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Avg deal size</div><div class="hs-stat-icon" style="background:#ede9fe;color:#7c3aed">📈</div></div><div class="hs-stat-value">$18K</div><div class="hs-stat-change positive">↑ $3K vs avg</div></div>
@@ -767,12 +823,12 @@ html{scroll-behavior:smooth}
 <div class="hs-stats-grid">
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Total Revenue</div><div class="hs-stat-icon" style="background:#d1fae5;color:#059669">💰</div></div><div class="hs-stat-value">$284K</div><div class="hs-stat-change positive">↑ 23% vs last month</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">New Contacts</div><div class="hs-stat-icon" style="background:#dbeafe;color:#2563eb">👥</div></div><div class="hs-stat-value">1,247</div><div class="hs-stat-change positive">↑ 12% this month</div></div>
-<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Email Open Rate</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59">📧</div></div><div class="hs-stat-value">42.3%</div><div class="hs-stat-change positive">↑ 5.2% avg</div></div>
+<div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Email Open Rate</div><div class="hs-stat-icon" style="background:#fff1ec;color:#ff7a59"></div></div><div class="hs-stat-value">42.3%</div><div class="hs-stat-change positive">↑ 5.2% avg</div></div>
 <div class="hs-stat-card"><div class="hs-stat-header"><div class="hs-stat-label">Deal Conversion</div><div class="hs-stat-icon" style="background:#fef3c7;color:#d97706">🎯</div></div><div class="hs-stat-value">47%</div><div class="hs-stat-change positive">↑ 8% vs avg</div></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
 <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Contact Growth</div><div style="color:#9ca3af;cursor:pointer">⋮</div></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Contact Growth</div><div style="color:#9ca3af;cursor:pointer"></div></div>
 <div style="height:140px;display:flex;align-items:flex-end;gap:8px;padding:0 4px">
 <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:40%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jan</div></div>
 <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:55%;background:linear-gradient(180deg,#ff7a59,#ff9a7e);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Feb</div></div>
@@ -796,7 +852,7 @@ html{scroll-behavior:smooth}
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid #f3f4f6"><div style="font-size:20px;font-weight:700;color:#111827">$284K</div><div style="font-size:12px;font-weight:600;color:#059669">↑ 23% QoQ</div></div>
 </div>
 <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Email Performance</div><div style="color:#9ca3af;cursor:pointer">⋮</div></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-size:15px;font-weight:600;color:#111827">Email Performance</div><div style="color:#9ca3af;cursor:pointer"></div></div>
 <div style="height:140px;display:flex;align-items:flex-end;gap:8px;padding:0 4px">
 <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:65%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Jan</div></div>
 <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;height:70%;background:linear-gradient(180deg,#10b981,#34d399);border-radius:4px 4px 0 0"></div><div style="font-size:10px;color:#9ca3af">Feb</div></div>
@@ -813,11 +869,11 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 </div>
-</div>
-<div class="reveal grid md:grid-cols-3 gap-4 sm:gap-6">
-<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Objects</h4><p class="text-sm text-slate-600">Built 15+ custom objects to model complex business relationships.</p></div>
-<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Code Workflows</h4><p class="text-sm text-slate-600">Serverless functions and custom-coded actions within workflows.</p></div>
-<div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Integration & Migration</h4><p class="text-sm text-slate-600">End-to-end CRM migrations and third-party integrations.</p></div>
+<div class="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Objects</h4><p class="text-sm text-slate-600">Built 15+ custom objects to model complex business relationships.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom Code Workflows</h4><p class="text-sm text-slate-600">Serverless functions and custom-coded actions within workflows.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Custom UI Extensions</h4><p class="text-sm text-slate-600">Embedded apps and custom cards using React and HubL.</p></div>
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow"><div class="w-12 h-12 rounded-xl bg-[#ff7a59]/10 flex items-center justify-center mb-4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff7a59" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-2 text-base">Integration & Migration</h4><p class="text-sm text-slate-600">End-to-end CRM migrations and third-party integrations.</p></div>
 </div>
 </div>
 </section>
@@ -828,26 +884,27 @@ html{scroll-behavior:smooth}
 <span class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#6d28d9]/10 border border-[#6d28d9]/30 mb-3 sm:mb-4"><div class="w-2 h-2 rounded-full bg-[#6d28d9]"></div><span class="text-[#5b21b6] font-semibold text-xs sm:text-sm">VISUAL AUTOMATION</span></span>
 <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Make.com<span class="block text-2xl sm:text-3xl md:text-4xl text-[#6d28d9] mt-2">Scenario Orchestration</span></h2>
 </div>
+<!-- Make.com Real Logo - Interactive with hover effect -->
 <div class="reveal flex justify-center mb-10 sm:mb-16">
-<div style="position:relative;width:160px;height:160px">
-<svg class="animate-hex-rotate" style="transform-origin:100px 100px" width="160" height="160" viewBox="0 0 200 200">
+<div class="make-logo-wrapper" id="make-logo-wrapper" title="Make.com - Click to interact">
+<svg class="make-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<g class="make-hex-outer">
 <polygon points="100,20 170,55 170,145 100,180 30,145 30,55" fill="none" stroke="#6d28d9" stroke-width="3" opacity=".3"/>
-</svg>
-<svg width="160" height="160" viewBox="0 0 200 200" style="position:absolute;top:0;left:0">
+</g>
 <polygon points="100,30 160,60 160,140 100,170 40,140 40,60" fill="#6d28d9"/>
 <polygon points="100,55 140,75 140,125 100,145 60,125 60,75" fill="#f5f3ff"/>
-<text x="100" y="110" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="40" fill="#6d28d9">M</text>
+<text x="100" y="110" text-anchor="middle" font-family="Lexend Deca, sans-serif" font-weight="bold" font-size="40" fill="#6d28d9">M</text>
 </svg>
 </div>
 </div>
 <div class="reveal mb-10 sm:mb-16">
 <div class="make-ui">
 <div class="make-sidebar">
-<div class="make-sidebar-header"><div class="make-logo">M</div><div><div class="make-sidebar-title">Scenarios</div><div class="make-sidebar-subtitle">E-commerce Flow</div></div></div>
+<div class="make-sidebar-header"><div class="make-logo-icon">M</div><div><div class="make-sidebar-title">Scenarios</div><div class="make-sidebar-subtitle">E-commerce Flow</div></div></div>
 <div class="make-module-list">
 <div class="make-module-category">Triggers</div>
 <div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#000;color:#fff">🛍</div><div class="make-module-name">Shopify</div><div class="make-module-count">Watch</div></div>
-<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#0077B5;color:#fff">✉</div><div class="make-module-name">Gmail</div><div class="make-module-count">Watch</div></div>
+<div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#0077B5;color:#fff"></div><div class="make-module-name">Gmail</div><div class="make-module-count">Watch</div></div>
 <div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#FF6600;color:#fff">📋</div><div class="make-module-name">Airtable</div><div class="make-module-count">Watch</div></div>
 <div class="make-module-category">Actions</div>
 <div class="make-module-item make-action-btn"><div class="make-module-icon" style="background:#4A154B;color:#fff">💬</div><div class="make-module-name">Slack</div><div class="make-module-count">Send</div></div>
@@ -873,7 +930,7 @@ html{scroll-behavior:smooth}
 </div>
 <div class="make-canvas" id="make-canvas">
 <svg class="make-canvas-svg" id="make-svg"></svg>
-<div class="make-node make-action-btn" style="left:60px;top:80px" data-module="shopify"><div class="make-node-number">1</div><div class="make-node-icon" style="background:#000;color:#fff">🛍</div><div class="make-node-label">Shopify</div><div class="make-node-sublabel">Watch Orders</div></div>
+<div class="make-node make-action-btn" style="left:60px;top:80px" data-module="shopify"><div class="make-node-number">1</div><div class="make-node-icon" style="background:#000;color:#fff"></div><div class="make-node-label">Shopify</div><div class="make-node-sublabel">Watch Orders</div></div>
 <div class="make-node make-action-btn" style="left:240px;top:80px" data-module="router"><div class="make-node-number">2</div><div class="make-node-icon" style="background:#6d28d9;color:#fff">🔀</div><div class="make-node-label">Router</div><div class="make-node-sublabel">Filter Orders</div></div>
 <div class="make-node make-action-btn" style="left:420px;top:40px" data-module="airtable"><div class="make-node-number">3</div><div class="make-node-icon" style="background:#0077B5;color:#fff">📋</div><div class="make-node-label">Airtable</div><div class="make-node-sublabel">Create Record</div></div>
 <div class="make-node make-action-btn" style="left:420px;top:140px" data-module="slack"><div class="make-node-number">4</div><div class="make-node-icon" style="background:#4A154B;color:#fff">💬</div><div class="make-node-label">Slack</div><div class="make-node-sublabel">Send Message</div></div>
@@ -897,11 +954,11 @@ html{scroll-behavior:smooth}
 <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Zapier<span class="block text-2xl sm:text-3xl md:text-4xl text-[#ff4f00] mt-2">Multi-Step Automation</span></h2>
 </div>
 <div class="reveal flex justify-center mb-10 sm:mb-16">
-<div style="position:relative;width:160px;height:160px">
+<div class="zap-logo-wrapper">
 <svg width="160" height="160" viewBox="0 0 200 200">
 <circle cx="100" cy="100" r="80" fill="#ff4f00" opacity=".1"><animate attributeName="r" values="80;90;80" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".1;.2;.1" dur="3s" repeatCount="indefinite"/></circle>
-<g class="animate-bolt-flash"><path d="M110 20 L60 110 L95 110 L85 180 L140 90 L105 90 L110 20Z" fill="#ff4f00" stroke="#e04600" stroke-width="2"/></g>
-<text x="100" y="115" text-anchor="middle" font-family="Lexend Deca" font-weight="bold" font-size="30" fill="white">Z</text>
+<g class="zap-bolt"><path d="M110 20 L60 110 L95 110 L85 180 L140 90 L105 90 L110 20Z" fill="#ff4f00" stroke="#e04600" stroke-width="2"/></g>
+<text x="100" y="115" text-anchor="middle" font-family="Lexend Deca, sans-serif" font-weight="bold" font-size="30" fill="white">Z</text>
 </svg>
 </div>
 </div>
@@ -959,7 +1016,6 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 </div>
-</div>
 <div class="reveal grid md:grid-cols-3 gap-4 sm:gap-6">
 <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff4f00]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">5000+ Apps</h4><p class="text-xs sm:text-sm text-slate-600">Connect any combination of tools.</p></div>
 <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg"><div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#ff4f00]/10 flex items-center justify-center mb-3 sm:mb-4"><svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg></div><h4 class="font-bold text-[#2d3e50] mb-1 sm:mb-2 text-sm sm:text-base">Code Steps</h4><p class="text-xs sm:text-sm text-slate-600">Python & JavaScript for custom logic.</p></div>
@@ -975,7 +1031,7 @@ html{scroll-behavior:smooth}
 <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d3e50] mt-3 sm:mt-4">Google Apps<span class="block text-2xl sm:text-3xl md:text-4xl text-[#4285f4] mt-2">Script Development</span></h2>
 </div>
 <div class="reveal flex justify-center mb-10 sm:mb-16">
-<div style="position:relative;width:160px;height:160px">
+<div class="gas-logo-wrapper">
 <svg width="160" height="160" viewBox="0 0 200 200">
 <circle cx="100" cy="100" r="85" fill="none" stroke="#4285f4" stroke-width="8" stroke-dasharray="134 400"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
 <circle cx="100" cy="100" r="85" fill="none" stroke="#ea4335" stroke-width="8" stroke-dasharray="134 400" stroke-dashoffset="-134"><animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/></circle>
@@ -990,7 +1046,7 @@ html{scroll-behavior:smooth}
 <div class="reveal mb-10 sm:mb-16">
 <div class="gas-ui">
 <div class="gas-sidebar">
-<div class="gas-sidebar-header"><div class="gas-logo">GS</div><div><div class="gas-sidebar-title">Invoice Automation</div><div class="gas-sidebar-subtitle">Project • v2.1</div></div></div>
+<div class="gas-sidebar-header"><div class="gas-logo-icon">GS</div><div><div class="gas-sidebar-title">Invoice Automation</div><div class="gas-sidebar-subtitle">Project • v2.1</div></div></div>
 <div class="gas-file-list">
 <div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px 4px">Files</div>
 <div class="gas-file-item active" data-file="code"><div class="gas-file-icon">📄</div>Code.gs</div>
@@ -998,7 +1054,7 @@ html{scroll-behavior:smooth}
 <div class="gas-file-item" data-file="utils"><div class="gas-file-icon">🔧</div>Utils.gs</div>
 <div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:16px 12px 4px">Services</div>
 <div class="gas-file-item"><div class="gas-file-icon">📊</div>Spreadsheet</div>
-<div class="gas-file-item"><div class="gas-file-icon">📧</div>Gmail</div>
+<div class="gas-file-item"><div class="gas-file-icon"></div>Gmail</div>
 <div class="gas-file-item"><div class="gas-file-icon">📁</div>Drive</div>
 <div class="gas-file-item"><div class="gas-file-icon">📅</div>Calendar</div>
 <div style="font-size:10px;font-weight:600;color:#5f6368;text-transform:uppercase;letter-spacing:.5px;padding:16px 12px 4px">Triggers</div>
@@ -1200,6 +1256,51 @@ Message delivered successfully
 <div id="detail-content" class="relative z-10"></div>
 </div>
 <script>
+// ============================================
+// AUDIO - Bubble Pop Sound ONLY
+// ============================================
+let audioCtx = null;
+function getAudioCtx() {
+if (!audioCtx) {
+audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+return audioCtx;
+}
+
+// Bubble pop sound - fizzy pop (ONLY sound in the app)
+function playPopSound() {
+try {
+const ctx = getAudioCtx();
+const osc = ctx.createOscillator();
+const gain = ctx.createGain();
+osc.connect(gain);
+gain.connect(ctx.destination);
+osc.type = 'sine';
+osc.frequency.setValueAtTime(600, ctx.currentTime);
+osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.15);
+gain.gain.setValueAtTime(0.3, ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+osc.start(ctx.currentTime);
+osc.stop(ctx.currentTime + 0.2);
+// Add noise burst for fizzy effect
+const bufferSize = ctx.sampleRate * 0.1;
+const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+const data = buffer.getChannelData(0);
+for (let i = 0; i < bufferSize; i++) {
+data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufferSize, 3);
+}
+const noise = ctx.createBufferSource();
+noise.buffer = buffer;
+const noiseGain = ctx.createGain();
+noise.connect(noiseGain);
+noiseGain.connect(ctx.destination);
+noiseGain.gain.setValueAtTime(0.1, ctx.currentTime);
+noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+noise.start(ctx.currentTime);
+} catch(e) {}
+}
+
+// Toast notifications (no sound)
 function showToast(title,message,icon='🔔'){
 const c=document.getElementById('toast-container');
 const t=document.createElement('div');
@@ -1208,6 +1309,15 @@ t.innerHTML=`<div class="toast-icon">${icon}</div><div class="toast-content"><di
 c.appendChild(t);
 setTimeout(()=>{if(t.parentElement){t.classList.add('removing');setTimeout(()=>t.remove(),300)}},4000);
 }
+
+// Interactive logo handlers (no sound, just visual)
+document.getElementById('hubspot-logo-wrapper').addEventListener('click', function(){
+showToast('HubSpot CRM', 'The logo floats and rotates on hover! Try it.', '🟠');
+});
+document.getElementById('make-logo-wrapper').addEventListener('click', function(){
+showToast('Make.com', 'The hexagon rotates on hover!', '🟣');
+});
+
 document.querySelectorAll('.hs-action-btn,.make-action-btn').forEach(btn=>{
 btn.addEventListener('click',function(e){
 e.stopPropagation();
@@ -1426,7 +1536,7 @@ document.querySelectorAll('.make-node').forEach(n=>n.classList.remove('active'))
 this.classList.add('active');
 const m=this.dataset.module;
 const names={shopify:'Shopify - Watch Orders',router:'Router - Filter Orders',airtable:'Airtable - Create Record',slack:'Slack - Send Message',hubspot:'HubSpot - Create Contact'};
-showToast(names[m]||m,'Module configuration panel would open here.','⚙️');
+showToast(names[m]||m,'Module configuration panel would open here.','️');
 });
 });
 const bubbleCanvas=document.getElementById('bubble-canvas');
@@ -1587,6 +1697,7 @@ const mx=e.clientX-rect.left;
 const my=e.clientY-rect.top;
 for(let i=bubbles.length-1;i>=0;i--){
 if(bubbles[i].checkPop(mx,my)){
+playPopSound(); // ONLY SOUND IN THE APP
 showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'💥');
 return;
 }
@@ -1612,7 +1723,8 @@ const mx=t.clientX-rect.left;
 const my=t.clientY-rect.top;
 for(let i=bubbles.length-1;i>=0;i--){
 if(bubbles[i].checkPop(mx,my)){
-showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'💥');
+playPopSound(); // ONLY SOUND IN THE APP
+showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'');
 return;
 }
 }
@@ -1636,7 +1748,6 @@ const btnLoader = document.getElementById('contact-btn-loader');
 const formWrapper = document.getElementById('contact-form-wrapper');
 const thankYou = document.getElementById('contact-thankyou');
 
-// Show loader, disable button
 btnText.classList.add('hidden');
 btnLoader.classList.remove('hidden');
 submitBtn.disabled = true;
@@ -1644,7 +1755,6 @@ submitBtn.style.opacity = '0.7';
 submitBtn.style.cursor = 'not-allowed';
 submitBtn.classList.remove('hover:-translate-y-1');
 
-// Collect form data
 const formData = new FormData(form);
 const templateParams = {
 user_name: formData.get('user_name'),
@@ -1654,22 +1764,18 @@ message: formData.get('message'),
 to_email: 'harshdeepsingh2809@gmail.com'
 };
 
-// Send via EmailJS (already initialized with publicKey at top of page)
 emailjs.send('service_3puhnx5', 'template_9qx812p', templateParams)
 .then(function(response) {
 console.log('SUCCESS!', response.status, response.text);
 showThankYou();
 }, function(error) {
 console.error('EmailJS Error:', error);
-// Still show thank you for UX continuity
 showThankYou();
 });
 
 function showThankYou(){
-// Hide form, show thank you message in same area
 formWrapper.classList.add('hidden');
 thankYou.classList.remove('hidden');
-// Reset button state (for reload)
 btnText.classList.remove('hidden');
 btnLoader.classList.add('hidden');
 submitBtn.disabled = false;
@@ -1734,7 +1840,7 @@ content.innerHTML=`
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">${metricsHTML}</div>
 <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
 <div class="detail-glass p-5 sm:p-8">
-<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(59,130,246,.2);color:#60a5fa">⚠</div>Challenge</div>
+<div class="detail-section-title"><div class="detail-section-icon" style="background:rgba(59,130,246,.2);color:#60a5fa"></div>Challenge</div>
 ${checkList(cs.challenge)}
 </div>
 <div class="detail-glass p-5 sm:p-8">
@@ -1766,7 +1872,64 @@ document.getElementById('detail-panel').classList.remove('open');
 document.body.classList.remove('detail-open');
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+const tabTitles = [
+  "Harshdeep Singh",
+  "CRM Portfolio",
+  "HubSpot Automation",
+  "Workflow Architect",
+  "Make • Zapier • Apps Script",
+  "Let’s Automate"
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let currentText = "";
+let dotStep = 0;
+
+function getDots() {
+  const dots = ["", ".", "..", "..."];
+  dotStep = (dotStep + 1) % dots.length;
+  return dots[dotStep];
+}
+
+function animateTabTitle() {
+  const fullText = tabTitles[titleIndex];
+
+  if (!isDeleting) {
+    currentText = fullText.substring(0, charIndex + 1);
+    charIndex++;
+
+    document.title = currentText + getDots();
+
+    if (charIndex === fullText.length) {
+      setTimeout(() => {
+        isDeleting = true;
+        animateTabTitle();
+      }, 1800);
+      return;
+    }
+  } else {
+    currentText = fullText.substring(0, charIndex - 1);
+    charIndex--;
+
+    document.title = currentText;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      titleIndex = (titleIndex + 1) % tabTitles.length;
+
+      setTimeout(animateTabTitle, 500);
+      return;
+    }
+  }
+
+  const typingSpeed = isDeleting ? 85 : 135;
+  setTimeout(animateTabTitle, typingSpeed);
+}
+
+animateTabTitle();
+
 </script>
 </body>
 </html>
-
