@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harshdeep Singh - Solution Engineer CRM Portfolio</title>
-<!-- Bigger HS favicon matching navbar logo -->
+<title>Harshdeep Singh</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fb923c'/%3E%3Cstop offset='100%25' stop-color='%239333ea'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='96' height='96' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-family='Arial, Helvetica, sans-serif' font-size='42' font-weight='900' fill='white' text-anchor='middle'%3EHS%3C/text%3E%3C/svg%3E">
-
+<meta name="theme-color" content="#0f172a">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.14/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/lexend-deca@4.5.10/index.css">
@@ -55,15 +54,21 @@ html{scroll-behavior:smooth}
 .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#ff7a59;transition:width .3s}
 .nav-link:hover::after{width:100%}
 .hero-title{font-size:clamp(2.5rem,8vw,5rem);line-height:1.1}
-.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:12px;pointer-events:none}
-.toast{background:white;border-radius:12px;padding:16px 20px;box-shadow:0 20px 40px rgba(0,0,0,.2);display:flex;align-items:center;gap:12px;min-width:300px;max-width:400px;animation:toast-in .4s cubic-bezier(.16,1,.3,1) forwards;pointer-events:auto;border-left:4px solid #ff7a59}
-.toast.removing{animation:toast-out .3s ease forwards}
-.toast-icon{width:40px;height:40px;border-radius:10px;background:#fff1ec;color:#ff7a59;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.toast-content{flex:1}
-.toast-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:2px}
-.toast-message{font-size:12px;color:#6b7280}
-.toast-close{width:28px;height:28px;border-radius:6px;border:none;background:transparent;cursor:pointer;color:#9ca3af;display:flex;align-items:center;justify-content:center}
-.toast-close:hover{background:#f3f4f6;color:#111827}
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;width:min(360px,calc(100vw - 32px))}
+.toast{position:relative;background:rgba(15,23,42,.92);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-left:4px solid #ff7a59;border-radius:14px;padding:14px 44px 14px 14px;box-shadow:0 18px 45px rgba(0,0,0,.35);display:flex;align-items:flex-start;gap:12px;min-width:0;max-width:360px;animation:toast-in .34s cubic-bezier(.16,1,.3,1) forwards;pointer-events:auto;overflow:hidden;color:#fff}
+.toast.removing{animation:toast-out .24s ease forwards}
+.toast-icon{width:34px;height:34px;border-radius:10px;background:rgba(255,122,89,.14);color:#ffb199;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.toast-content{flex:1;min-width:0}
+.toast-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;line-height:1.25}
+.toast-message{font-size:12px;color:rgba(226,232,240,.78);line-height:1.35}
+.toast-close{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:8px;border:none;background:transparent;cursor:pointer;color:rgba(226,232,240,.55);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.toast-close:hover{background:rgba(255,255,255,.08);color:#fff}
+.toast-progress{position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,#ff7a59,#9333ea);transform-origin:left;animation:toast-progress var(--toast-duration,3000ms) linear forwards}
+.toast-success{border-left-color:#10b981}.toast-success .toast-icon{background:rgba(16,185,129,.14);color:#6ee7b7}.toast-success .toast-progress{background:linear-gradient(90deg,#10b981,#22c55e)}
+.toast-info{border-left-color:#ff7a59}.toast-info .toast-icon{background:rgba(255,122,89,.14);color:#ffb199}.toast-info .toast-progress{background:linear-gradient(90deg,#ff7a59,#f97316)}
+.toast-warning{border-left-color:#f59e0b}.toast-warning .toast-icon{background:rgba(245,158,11,.14);color:#fcd34d}.toast-warning .toast-progress{background:linear-gradient(90deg,#f59e0b,#f97316)}
+@keyframes toast-progress{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@media (max-width:640px){.toast-container{left:12px;right:12px;bottom:16px;width:auto}.toast{max-width:none;width:100%;padding:12px 42px 12px 12px}.toast-icon{width:30px;height:30px;font-size:15px}.toast-title{font-size:12.5px}.toast-message{font-size:11.5px}}
 .mobile-menu{position:fixed;top:0;right:0;width:100%;max-width:320px;height:100vh;background:rgba(15,23,42,.98);backdrop-filter:blur(20px);z-index:100;transform:translateX(100%);transition:transform .3s ease;padding:80px 24px 24px}
 .mobile-menu.open{transform:translateX(0)}
 .mobile-menu-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:99;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -118,10 +123,10 @@ html{scroll-behavior:smooth}
 .zap-topbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;flex-wrap:wrap;gap:12px}
 .zap-zap-info{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .zap-zap-name{font-size:16px;font-weight:600;color:#111827}
-.zap-toggle{position:relative;width:44px;height:24px;background:#10b981;border-radius:12px;cursor:pointer;transition:background .2s}
-.zap-toggle::after{content:'';position:absolute;top:2px;right:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-.zap-toggle.off{background:#d1d5db}
-.zap-toggle.off::after{transform:translateX(-20px);right:auto;left:2px}
+.zap-toggle{position:relative;width:46px;height:26px;background:#10b981;border-radius:999px;cursor:pointer;transition:background .25s ease,box-shadow .25s ease;box-shadow:inset 0 0 0 1px rgba(16,185,129,.12);flex-shrink:0}
+.zap-toggle::after{content:'';position:absolute;top:3px;left:3px;right:auto;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .28s cubic-bezier(.16,1,.3,1);box-shadow:0 2px 6px rgba(0,0,0,.22);transform:translateX(20px)}
+.zap-toggle.off{background:#d1d5db;box-shadow:inset 0 0 0 1px rgba(107,114,128,.18)}
+.zap-toggle.off::after{left:3px;right:auto;transform:translateX(0)}
 .zap-topbar-actions{display:flex;gap:8px}
 .zap-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
 .zap-btn-primary{background:#ff4f00;color:#fff}
@@ -398,8 +403,15 @@ html{scroll-behavior:smooth}
 .metric-3d{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.02) 100%);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;transition:all .4s cubic-bezier(.16,1,.3,1);overflow:hidden}
 .metric-3d::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.6}
 .metric-3d:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 30px var(--accent-glow);border-color:var(--accent)}
-.tech-cube{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;transition:all .3s;cursor:pointer}
-.tech-cube:hover{transform:translateY(-4px) scale(1.05);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.tech-cube{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;transition:all .3s;cursor:pointer;overflow:hidden}
+.tech-cube::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--accent-glow,rgba(255,255,255,.12)),transparent 55%);opacity:.35;transition:opacity .3s;pointer-events:none}
+.tech-cube:hover{transform:translateY(-4px) scale(1.05);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.3),0 0 28px var(--accent-glow,rgba(255,255,255,.14))}
+.tech-cube:hover::before{opacity:.65}
+.tech-logo-wrap{position:relative;z-index:1;width:48px;height:48px;margin:0 auto 10px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);transition:all .3s}
+.tech-cube:hover .tech-logo-wrap{transform:translateY(-2px) rotate(-3deg);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22)}
+.tech-logo-img{width:28px;height:28px;object-fit:contain;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))}
+.tech-logo-label{position:relative;z-index:1;font-size:11px;font-weight:700;color:rgba(255,255,255,.9);text-align:center;line-height:1.25}
+.tech-chip-logo{width:14px;height:14px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:6px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
 .detail-section-title{display:flex;align-items:center;gap:12px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:16px}
 .detail-section-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(255,255,255,.1)}
 .check-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
@@ -408,6 +420,40 @@ html{scroll-behavior:smooth}
 .contact-spinner{display:inline-block;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .contact-thankyou{animation:fade-in .5s ease forwards}
+
+
+/* Enhanced Case Studies UX */
+#projects{position:relative}
+#projects::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 18% 18%,rgba(255,122,89,.11),transparent 30%),radial-gradient(circle at 82% 28%,rgba(139,92,246,.13),transparent 34%),linear-gradient(180deg,rgba(255,255,255,.02),transparent 24%,rgba(255,255,255,.015));z-index:0}
+#projects .max-w-7xl{position:relative;z-index:1}
+#projects h2{position:relative;display:inline-block;text-shadow:0 18px 50px rgba(0,0,0,.35)}
+#projects h2::after{content:'';position:absolute;left:50%;bottom:-12px;width:72px;height:4px;border-radius:999px;background:linear-gradient(90deg,#ff7a59,#8b5cf6,#10b981);transform:translateX(-50%);box-shadow:0 0 28px rgba(255,122,89,.35)}
+#projects .cs-card{min-height:100%;isolation:isolate;transform-style:preserve-3d;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.12);box-shadow:0 18px 45px rgba(0,0,0,.28);will-change:transform,box-shadow,border-color}
+#projects .cs-card::before{height:2px;background:linear-gradient(90deg,transparent,var(--card-accent),rgba(255,255,255,.45),transparent);opacity:.55}
+#projects .cs-card::after{content:'';position:absolute;inset:1px;border-radius:19px;background:radial-gradient(circle at var(--mx,50%) var(--my,35%),var(--card-glow),transparent 38%),linear-gradient(135deg,rgba(255,255,255,.08),transparent 42%);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:1}
+#projects .cs-card:hover::after{opacity:.9}
+#projects .cs-card:hover{transform:translateY(-10px) scale(1.015);border-color:color-mix(in srgb,var(--card-accent) 52%,rgba(255,255,255,.2));box-shadow:0 34px 80px -24px rgba(0,0,0,.75),0 0 55px var(--card-glow)}
+#projects .cs-card>.relative{position:relative;z-index:2;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+#projects .cs-card:hover>.relative{transform:translateZ(18px)}
+#projects .card-gradient-bg{height:240px;filter:blur(.2px);opacity:.18}
+#projects .card-logo-badge{border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 32px rgba(0,0,0,.34),0 0 28px var(--card-glow)}
+#projects .card-tag{background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+#projects .card-metric{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.1)}
+#projects .card-metric::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--card-accent),transparent);opacity:.65}
+#projects .card-metric:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.18);box-shadow:0 14px 30px rgba(0,0,0,.22)}
+#projects .card-tech-pill{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
+#projects .card-tech-pill:hover{background:color-mix(in srgb,var(--card-accent) 22%,rgba(255,255,255,.08));border-color:color-mix(in srgb,var(--card-accent) 42%,rgba(255,255,255,.15))}
+#projects .card-cta{background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.03));border-color:color-mix(in srgb,var(--card-accent) 35%,rgba(255,255,255,.12));box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+#projects .cs-card:hover .card-cta{background:var(--card-accent);border-color:var(--card-accent);box-shadow:0 12px 28px var(--card-glow)}
+#projects .reveal.mt-16 .glass{position:relative;overflow:hidden;border-color:rgba(255,255,255,.14);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+#projects .reveal.mt-16 .glass::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,122,89,.13),rgba(139,92,246,.12));opacity:.75;pointer-events:none}
+#projects .reveal.mt-16 .glass>*{position:relative;z-index:1}
+
+@supports not (color:color-mix(in srgb,#000 50%,#fff)){
+#projects .cs-card:hover{border-color:rgba(255,255,255,.24)}
+#projects .card-tech-pill:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
+#projects .card-cta{border-color:rgba(255,255,255,.16)}
+}
 
 /* Mobile responsive */
 @media (max-width:768px){
@@ -519,6 +565,114 @@ html{scroll-behavior:smooth}
 .gas-code{font-size:12px;padding:12px}
 .hs-logo-wrapper,.make-logo-wrapper,.zap-logo-wrapper,.gas-logo-wrapper{width:120px;height:120px}
 }
+
+
+/* =========================================================
+   Stable Logo Idle + Hover Animations
+   Added after original styles so it enhances without changing layout.
+   ========================================================= */
+.hs-logo-wrapper,
+.make-logo-wrapper,
+.zap-logo-wrapper,
+.gas-logo-wrapper{
+  transform-origin:center;
+  transform-style:preserve-3d;
+  will-change:transform,filter;
+  backface-visibility:hidden;
+}
+
+/* HubSpot: clear idle float, stronger hover float/tilt */
+.hs-logo-wrapper{
+  animation:hsLogoIdleFloat 3.8s ease-in-out infinite !important;
+}
+.hs-logo-wrapper::before{
+  opacity:.55;
+}
+.hs-logo-wrapper:hover{
+  animation:hsLogoHoverFloat 1.65s ease-in-out infinite !important;
+  filter:drop-shadow(0 20px 30px rgba(255,122,89,.35));
+}
+.hs-logo-wrapper:hover::before{
+  opacity:1;
+  transform:translateZ(-24px) scale(1.08);
+}
+.hs-logo-wrapper:hover .hs-sprocket{
+  animation:gear-spin 5s linear infinite;
+}
+.hs-logo-wrapper:hover .hs-logo-fill{
+  animation:logo-pulse 1.25s ease-in-out infinite;
+}
+
+/* Make: idle float, hover switches to active 3D motion */
+.make-logo-wrapper{
+  perspective:900px;
+  animation:makeLogoIdleFloat 4.1s ease-in-out infinite !important;
+}
+.make-logo-wrapper:hover{
+  animation:makeLogoHoverFloat 1.7s ease-in-out infinite !important;
+  filter:drop-shadow(0 20px 30px rgba(109,40,217,.30));
+}
+.make-logo-wrapper:hover .make-logo-svg{
+  animation:logo-pulse-purple 1.35s ease-in-out infinite;
+}
+.make-logo-wrapper:hover .make-hex-outer{
+  animation:hex-rotate 5s linear infinite;
+  transform-origin:100px 100px;
+}
+
+/* Keep Zapier/GAS alive too — subtle idle only, stronger on hover */
+.zap-logo-wrapper{
+  animation:zapLogoIdleFloat 4.4s ease-in-out infinite !important;
+}
+.zap-logo-wrapper:hover{
+  animation:zapLogoHoverFloat 1.7s ease-in-out infinite !important;
+  filter:drop-shadow(0 18px 28px rgba(255,79,0,.28));
+}
+.zap-logo-wrapper:hover .zap-bolt{
+  animation:bolt-flash 1s ease infinite;
+}
+
+.gas-logo-wrapper{
+  animation:gasLogoIdleFloat 4.6s ease-in-out infinite !important;
+}
+.gas-logo-wrapper:hover{
+  animation:gasLogoHoverFloat 1.8s ease-in-out infinite !important;
+  filter:drop-shadow(0 18px 28px rgba(66,133,244,.24));
+}
+
+@keyframes hsLogoIdleFloat{
+  0%,100%{transform:translate3d(0,0,0) rotateZ(-1deg);filter:drop-shadow(0 8px 16px rgba(255,122,89,.16))}
+  50%{transform:translate3d(0,-15px,0) rotateZ(1.5deg);filter:drop-shadow(0 18px 26px rgba(255,122,89,.25))}
+}
+@keyframes hsLogoHoverFloat{
+  0%,100%{transform:translate3d(0,-6px,0) rotateX(10deg) rotateY(-12deg) rotateZ(-2deg) scale(1.06)}
+  50%{transform:translate3d(0,-20px,0) rotateX(14deg) rotateY(12deg) rotateZ(3deg) scale(1.12)}
+}
+@keyframes makeLogoIdleFloat{
+  0%,100%{transform:translate3d(0,-2px,0) rotateZ(1deg);filter:drop-shadow(0 8px 16px rgba(109,40,217,.14))}
+  50%{transform:translate3d(0,-14px,0) rotateZ(-1.5deg);filter:drop-shadow(0 18px 26px rgba(109,40,217,.22))}
+}
+@keyframes makeLogoHoverFloat{
+  0%,100%{transform:translate3d(0,-6px,0) rotateX(9deg) rotateY(13deg) rotateZ(5deg) scale(1.07)}
+  50%{transform:translate3d(0,-20px,0) rotateX(-9deg) rotateY(-12deg) rotateZ(12deg) scale(1.13)}
+}
+@keyframes zapLogoIdleFloat{
+  0%,100%{transform:translate3d(0,0,0) rotateZ(0deg)}
+  50%{transform:translate3d(0,-10px,0) rotateZ(1.2deg)}
+}
+@keyframes zapLogoHoverFloat{
+  0%,100%{transform:translate3d(0,-5px,0) rotateX(7deg) rotateY(-8deg) rotateZ(-2deg) scale(1.04)}
+  50%{transform:translate3d(0,-16px,0) rotateX(-7deg) rotateY(8deg) rotateZ(3deg) scale(1.09)}
+}
+@keyframes gasLogoIdleFloat{
+  0%,100%{transform:translate3d(0,-1px,0) rotateZ(-.8deg)}
+  50%{transform:translate3d(0,-10px,0) rotateZ(1deg)}
+}
+@keyframes gasLogoHoverFloat{
+  0%,100%{transform:translate3d(0,-5px,0) rotateX(8deg) rotateY(8deg) rotateZ(2deg) scale(1.04)}
+  50%{transform:translate3d(0,-16px,0) rotateX(-8deg) rotateY(-8deg) rotateZ(-2deg) scale(1.09)}
+}
+
 </style>
 </head>
 <body>
@@ -1248,7 +1402,7 @@ Message delivered successfully
 </section>
 <footer class="bg-slate-950 py-6 sm:py-8 border-t border-white/5">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
-<div class="flex items-center gap-2 sm:gap-3"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-orange-400 to-purple-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm">HS</div><span class="text-white/50 text-xs sm:text-sm">© 2024 Harshdeep Singh. All rights reserved.</span></div>
+<div class="flex items-center gap-2 sm:gap-3"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-orange-400 to-purple-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm">HS</div><span class="text-white/50 text-xs sm:text-sm">© 2026 Harshdeep Singh. All rights reserved.</span></div>
 </div>
 </footer>
 <div id="detail-overlay" class="detail-overlay" onclick="closeDetail()"></div>
@@ -1300,22 +1454,67 @@ noise.start(ctx.currentTime);
 } catch(e) {}
 }
 
-// Toast notifications (no sound)
-function showToast(title,message,icon='🔔'){
+// Toast notifications (no sound) - controlled UX version
+const toastManager={recent:new Map(),maxVisible:2};
+function dismissToast(toast){
+if(!toast||toast.classList.contains('removing'))return;
+toast.classList.add('removing');
+setTimeout(()=>toast.remove(),260);
+}
+function showToast(title,message,icon='🔔',options={}){
 const c=document.getElementById('toast-container');
+if(!c)return;
+const type=options.type||'info';
+const duration=Number(options.duration||3000);
+const cooldown=Number(options.cooldown??3500);
+const key=options.key||`${title}:${message}`;
+const now=Date.now();
+const last=toastManager.recent.get(key)||0;
+if(cooldown>0&&now-last<cooldown)return;
+toastManager.recent.set(key,now);
+
+const visible=[...c.querySelectorAll('.toast:not(.removing)')];
+while(visible.length>=toastManager.maxVisible){
+dismissToast(visible.shift());
+}
+
 const t=document.createElement('div');
-t.className='toast';
-t.innerHTML=`<div class="toast-icon">${icon}</div><div class="toast-content"><div class="toast-title">${title}</div><div class="toast-message">${message}</div></div><button class="toast-close" onclick="this.parentElement.classList.add('removing');setTimeout(()=>this.parentElement.remove(),300)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>`;
+t.className=`toast toast-${type}`;
+t.style.setProperty('--toast-duration',`${duration}ms`);
+
+const iconEl=document.createElement('div');
+iconEl.className='toast-icon';
+iconEl.textContent=icon||'•';
+
+const content=document.createElement('div');
+content.className='toast-content';
+const titleEl=document.createElement('div');
+titleEl.className='toast-title';
+titleEl.textContent=title;
+const messageEl=document.createElement('div');
+messageEl.className='toast-message';
+messageEl.textContent=message;
+content.append(titleEl,messageEl);
+
+const closeBtn=document.createElement('button');
+closeBtn.className='toast-close';
+closeBtn.setAttribute('aria-label','Dismiss notification');
+closeBtn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+closeBtn.addEventListener('click',()=>dismissToast(t));
+
+const progress=document.createElement('div');
+progress.className='toast-progress';
+t.append(iconEl,content,closeBtn,progress);
 c.appendChild(t);
-setTimeout(()=>{if(t.parentElement){t.classList.add('removing');setTimeout(()=>t.remove(),300)}},4000);
+setTimeout(()=>dismissToast(t),duration);
 }
 
 // Interactive logo handlers (no sound, just visual)
 document.getElementById('hubspot-logo-wrapper').addEventListener('click', function(){
-showToast('HubSpot CRM', 'The logo floats and rotates on hover! Try it.', '🟠');
+showToast('HubSpot CRM','Hover the logo to see the motion effect.','🟠',{type:'info',key:'hubspot-logo-tip',cooldown:10000,duration:2200});
 });
 document.getElementById('make-logo-wrapper').addEventListener('click', function(){
-showToast('Make.com', 'The hexagon rotates on hover!', '🟣');
+showToast('Make.com','Hover the Make logo to preview the interaction.','🟣',{type:'info',key:'make-logo-tip',cooldown:10000,duration:2200});
 });
 
 document.querySelectorAll('.hs-action-btn,.make-action-btn').forEach(btn=>{
@@ -1328,14 +1527,14 @@ const msgs=[
 {title:'Pro Tip',message:'Harshdeep has built 50+ of these. Hire him!',icon:'💡'}
 ];
 const m=msgs[Math.floor(Math.random()*msgs.length)];
-showToast(m.title,m.message,m.icon);
+showToast(m.title,m.message,m.icon,{type:'info',key:'demo-action-preview',cooldown:7000,duration:2600});
 });
 });
 function toggleZap(){
 const t=document.getElementById('zap-toggle');
 t.classList.toggle('off');
-if(t.classList.contains('off'))showToast('Zap Turned Off','The Lead Sync Zap is now paused.','⏸');
-else showToast('Zap Turned On','The Lead Sync Zap is now active!','▶');
+if(t.classList.contains('off'))showToast('Zap Paused','Lead Sync is now paused.','⏸',{type:'warning',key:'zap-toggle',cooldown:300,duration:2600});
+else showToast('Zap Active','Lead Sync is now active.','▶',{type:'success',key:'zap-toggle',cooldown:300,duration:2600});
 }
 function runGasCode(){
 const btn=document.getElementById('gas-run-btn');
@@ -1355,7 +1554,7 @@ const steps=[
 {text:'✓ Generated 127 invoices successfully',type:'success',d:2800}
 ];
 steps.forEach(s=>{setTimeout(()=>{const l=document.createElement('div');l.className=`gas-console-line ${s.type}`;l.textContent=s.text;con.appendChild(l);con.scrollTop=con.scrollHeight},s.d)});
-setTimeout(()=>{btn.classList.remove('running');btnText.textContent='Run';outC.textContent='Generated 127 invoices successfully • Execution time: 2.8s';out.classList.add('visible');showToast('Execution Complete','127 invoices generated and emailed successfully!','✅')},3200);
+setTimeout(()=>{btn.classList.remove('running');btnText.textContent='Run';outC.textContent='Generated 127 invoices successfully • Execution time: 2.8s';out.classList.add('visible');showToast('Execution Complete','127 invoices generated and emailed successfully.','✅',{type:'success',key:'gas-execution-complete',cooldown:1500,duration:3400})},3200);
 }
 document.querySelectorAll('.gas-file-item[data-file]').forEach(item=>{
 item.addEventListener('click',function(){
@@ -1536,7 +1735,7 @@ document.querySelectorAll('.make-node').forEach(n=>n.classList.remove('active'))
 this.classList.add('active');
 const m=this.dataset.module;
 const names={shopify:'Shopify - Watch Orders',router:'Router - Filter Orders',airtable:'Airtable - Create Record',slack:'Slack - Send Message',hubspot:'HubSpot - Create Contact'};
-showToast(names[m]||m,'Module configuration panel would open here.','️');
+showToast(names[m]||m,'Preview selected. Configuration panel is not opened in this demo.','⚙️',{type:'info',key:`make-module-${m}`,cooldown:2500,duration:2200});
 });
 });
 const bubbleCanvas=document.getElementById('bubble-canvas');
@@ -1698,7 +1897,7 @@ const my=e.clientY-rect.top;
 for(let i=bubbles.length-1;i>=0;i--){
 if(bubbles[i].checkPop(mx,my)){
 playPopSound(); // ONLY SOUND IN THE APP
-showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'💥');
+showToast('Bubble popped',`${bubbles[i].tool.name} will respawn shortly.`,'💥',{type:'info',key:'bubble-popped',cooldown:9000,duration:1600});
 return;
 }
 }
@@ -1724,7 +1923,7 @@ const my=t.clientY-rect.top;
 for(let i=bubbles.length-1;i>=0;i--){
 if(bubbles[i].checkPop(mx,my)){
 playPopSound(); // ONLY SOUND IN THE APP
-showToast('Bubble Popped!',`${bubbles[i].tool.name} bubble will respawn in 5 seconds`,'');
+showToast('Bubble popped',`${bubbles[i].tool.name} will respawn shortly.`,'💥',{type:'info',key:'bubble-popped',cooldown:9000,duration:1600});
 return;
 }
 }
@@ -1822,7 +2021,27 @@ const overlay=document.getElementById('detail-overlay');
 const content=document.getElementById('detail-content');
 const checkList=(items)=>items.map(i=>`<div class="check-item"><div class="check-icon" style="color:${cs.accent}">✓</div><div class="text-sm text-white/80 leading-relaxed">${i}</div></div>`).join('');
 const metricsHTML=cs.metrics.map(m=>`<div class="metric-3d" style="--accent:${cs.accent};--accent-glow:${cs.accentGlow}"><div class="text-2xl mb-2">${m.icon}</div><div class="text-2xl sm:text-3xl font-bold text-white font-display">${m.value}</div><div class="text-xs sm:text-sm text-white/60 mt-1">${m.label}</div></div>`).join('');
-const techHTML=cs.tech.map(t=>`<div class="tech-cube" style="--accent:${cs.accent}"><div class="text-center"><div class="text-lg font-bold text-white mb-1">${t.charAt(0)}</div><div class="text-xs sm:text-sm font-semibold text-white/90">${t}</div></div></div>`).join('');
+const techLogoMap={
+'HubSpot':'https://cdn.simpleicons.org/hubspot/ff7a59',
+'HubL':'https://cdn.simpleicons.org/hubspot/ff7a59',
+'HubSpot CMS':'https://cdn.simpleicons.org/hubspot/ff7a59',
+'Workflows':'https://cdn.simpleicons.org/hubspot/ff7a59',
+'JavaScript':'https://cdn.simpleicons.org/javascript/f7df1e',
+'Node.js':'https://cdn.simpleicons.org/nodedotjs/5fa04e',
+'Looker':'https://cdn.simpleicons.org/looker/4285f4',
+'Render':'https://cdn.simpleicons.org/render/46e3b7',
+'Git':'https://cdn.simpleicons.org/git/f05032',
+'UptimeRobot':'https://cdn.simpleicons.org/uptimerobot/3bd671',
+'Claude AI':'https://cdn.simpleicons.org/anthropic/ffffff',
+'REST API':'https://cdn.simpleicons.org/postman/ff6c37',
+'MCP':'https://www.google.com/s2/favicons?domain=modelcontextprotocol.io&sz=64',
+'PDF CreateMate':'https://www.google.com/s2/favicons?domain=pdfcreatemate.com&sz=64'
+};
+const techFallback=(name)=>`data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${cs.accent}"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><rect x="8" y="8" width="84" height="84" rx="22" fill="url(#g)"/><text x="50" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="white">${name.slice(0,2).toUpperCase()}</text></svg>`)}`;
+const getTechLogo=(name)=>techLogoMap[name]||techFallback(name);
+const logoFallbackAttr=(name)=>`this.onerror=null;this.src='${techFallback(name)}'`;
+const techHTML=cs.tech.map(t=>`<div class="tech-cube" style="--accent:${cs.accent};--accent-glow:${cs.accentGlow}"><div class="tech-logo-wrap"><img class="tech-logo-img" src="${getTechLogo(t)}" alt="${t} logo" loading="lazy" onerror="${logoFallbackAttr(t)}"></div><div class="tech-logo-label">${t}</div></div>`).join('');
+const techPillsHTML=cs.tech.map(t=>`<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold" style="background:${cs.accent}20;color:${cs.accent};border:1px solid ${cs.accent}40"><img class="tech-chip-logo" src="${getTechLogo(t)}" alt="" loading="lazy" onerror="${logoFallbackAttr(t)}">${t}</span>`).join('');
 content.innerHTML=`
 <div class="sticky top-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex items-center justify-between border-b border-white/10" style="background:linear-gradient(180deg,rgba(15,23,42,.95) 0%,rgba(15,23,42,.8) 100%);backdrop-filter:blur(20px)">
 <div class="flex items-center gap-3 sm:gap-4">
@@ -1835,7 +2054,7 @@ content.innerHTML=`
 <div class="px-4 sm:px-8 py-6 sm:py-10 max-w-7xl mx-auto">
 <div class="text-center mb-8 sm:mb-12">
 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">${cs.title}</h2>
-<div class="flex flex-wrap justify-center gap-2 mb-6">${cs.tech.map(t=>`<span class="px-3 py-1 rounded-full text-xs font-semibold" style="background:${cs.accent}20;color:${cs.accent};border:1px solid ${cs.accent}40">${t}</span>`).join('')}</div>
+<div class="flex flex-wrap justify-center gap-2 mb-6">${techPillsHTML}</div>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">${metricsHTML}</div>
 <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
@@ -1872,69 +2091,73 @@ document.getElementById('detail-panel').classList.remove('open');
 document.body.classList.remove('detail-open');
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
-const tabTitles = [
-  "Harshdeep Singh",
-  "CRM Portfolio",
-  "HubSpot Automation",
-  "Workflow Architect",
-  "Make • Zapier • Apps Script",
-  "Let’s Automate"
-];
-
-let titleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let currentText = "";
-let dotStep = 0;
-
-const fallbackTitle = "Harshdeep Singh";
-
-function getDots() {
-  const dots = ["", ".", "..", "..."];
-  dotStep = (dotStep + 1) % dots.length;
-  return dots[dotStep];
-}
-
-function animateTabTitle() {
-  const fullText = tabTitles[titleIndex];
-
-  if (!isDeleting) {
-    currentText = fullText.substring(0, charIndex + 1);
-    charIndex++;
-
-    document.title = currentText + getDots();
-
-    if (charIndex === fullText.length) {
-      setTimeout(() => {
-        isDeleting = true;
-        animateTabTitle();
-      }, 1800);
-      return;
-    }
-  } else {
-    currentText = fullText.substring(0, charIndex - 1);
-    charIndex--;
-
-    // Prevent empty title so browser never shows URL
-    document.title = currentText.trim() || fallbackTitle;
-
-    if (charIndex <= 1) {
-      isDeleting = false;
-      titleIndex = (titleIndex + 1) % tabTitles.length;
-      charIndex = 0;
-
-      setTimeout(animateTabTitle, 500);
-      return;
-    }
-  }
-
-  const typingSpeed = isDeleting ? 85 : 135;
-  setTimeout(animateTabTitle, typingSpeed);
-}
-
-document.title = fallbackTitle;
-animateTabTitle();
-
 </script>
+
+<script id="dynamic-page-title-animation">
+(function(){
+const tabTitles=[
+'Harshdeep Singh',
+'CRM Portfolio',
+'HubSpot Automation',
+'Workflow Architect',
+'Make • Zapier • Apps Script',
+'Let’s Automate'
+];
+let titleIndex=0;
+let charIndex=0;
+let isDeleting=false;
+let dotStep=0;
+const fallbackTitle='Harshdeep Singh';
+function getDots(){
+const dots=['','.','..','...'];
+dotStep=(dotStep+1)%dots.length;
+return dots[dotStep];
+}
+function animateTabTitle(){
+const fullText=tabTitles[titleIndex];
+let currentText;
+if(!isDeleting){
+currentText=fullText.substring(0,charIndex+1);
+charIndex++;
+document.title=(currentText.trim()||fallbackTitle)+getDots();
+if(charIndex===fullText.length){
+setTimeout(()=>{isDeleting=true;animateTabTitle();},1800);
+return;
+}
+}else{
+currentText=fullText.substring(0,charIndex-1);
+charIndex--;
+document.title=currentText.trim()||fallbackTitle;
+if(charIndex<=1){
+isDeleting=false;
+titleIndex=(titleIndex+1)%tabTitles.length;
+charIndex=0;
+setTimeout(animateTabTitle,500);
+return;
+}
+}
+const speed=isDeleting?85:135;
+setTimeout(animateTabTitle,speed);
+}
+document.title=fallbackTitle;
+animateTabTitle();
+})();
+</script>
+
+<script>
+(function(){
+  const cards = document.querySelectorAll('#projects .cs-card');
+  cards.forEach(card => {
+    card.addEventListener('pointermove', event => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    }, { passive: true });
+  });
+})();
+</script>
+
 </body>
 </html>
